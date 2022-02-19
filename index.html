@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <title>Dconto</title>
+</head>
+<body>
+    <header>
+        <div class="header wrapper">
+            <a href="#" class="header_logo">
+                <img src="images/logo.svg" alt="logo">
+                <img class="header_logo_text" src="images/logo_text.svg" alt="logo_text">
+            </a>
+
+            <button class="header_geoposition">
+                <i class="fas fa-location-arrow"></i>
+                <span>Калининград</span>
+            </button>
+
+            <div class="header_currency">
+                <div class="header_currency_button">
+                    <img src="images/flag.svg" alt="flag">
+                    <span>RUB</span>
+                    <i class="fas fa-angle-down"></i>
+                </div>
+                <div class="header_currency_menu">
+
+                </div>
+            </div>
+
+            <div class="header_buttons">
+                <button class="header_notification">
+                    <img src="images/bell.svg" alt="bell">
+                    <div class="header_notification_mark">2</div>
+                </button>
+
+                <button class="header_comments">
+                    <img src="images/comments.svg" alt="comments">
+                    <div class="header_comments_mark">2</div>
+                </button>
+
+                <button class="header_like">
+                    <img src="images/like.svg" alt="like">
+                </button>
+            </div>
+
+            <div class="header_create">
+                <div class="header_create_button">
+                    <div class="header_create_button_icon">+</div>
+                    <span>Создать</span>
+                    <i class="fas fa-angle-down"></i>
+                </div>
+                <div class="header_create_menu">
+
+                </div>
+            </div>
+
+            <div class="header_user">
+                <div class="header_user_button">
+                    <img src="images/user.svg" alt="user">
+                    <span>Константин С.</span>
+                    <i class="fas fa-angle-down"></i>
+                </div>
+                <div class="header_user_menu">
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main">
+            <div class="main_content wrapper">
+                <h1>Свежий взгляд на рынок недвижимости</h1>
+
+                <nav class="main_content_tabs">
+                    <button class="main_content_tab main_content_active_tab">
+                        <img src="images/rent.svg" alt="icon">
+                        <span>Снять</span>
+                    </button>
+                    <button class="main_content_tab">
+                        <img src="images/buy.svg" alt="icon">
+                        <span>Купить</span>
+                    </button>
+                    <button class="main_content_tab">
+                        <img src="images/tenants.svg" alt="icon">
+                        <span>Арендаторы</span>
+                    </button>
+                    <button class="main_content_tab">
+                        <img src="images/co_tenants.svg" alt="icon">
+                        <span>Соарендаторы</span>
+                    </button>
+                    <button class="main_content_tab">
+                        <img src="images/services.svg" alt="icon">
+                        <span>Услуги</span>
+                    </button>
+                </nav>
+
+                <div class="main_content_tab_window">
+                    <select name="term" id="term">
+                        <option value="1">На любой срок</option>
+                        <option value="2">На длительный срок</option>
+                        <option value="3">На короткий срок</option>
+                    </select>
+
+                    <select name="rent" id="rent">
+                        <option value="1">Аренда и оплата</option>
+                        <option value="2">С бонусами и штрафами</option>
+                        <option value="3">Аренда за помощь</option>
+                        <option value="4">Аренда с заработком</option>
+                        <option value="5">Аренда и обучение</option>
+                        <option value="6">Бесплатная аренда</option>
+                    </select>
+
+                    <select name="real_estate" id="real_estate">
+                        <option value="1">Жилая</option>
+                        <option value="2">Коммерческая</option>
+                        <option value="3">Для мероприятий</option>
+                        <option value="4">Прочая</option>
+                    </select>
+
+                    <div class="real_estate_price">
+                        <input type="number" id="price_from" placeholder="Цена от" min="0">
+                        <input type="number" id="price_up_to" placeholder="до" min="0">
+                        <span>RUB</span>
+                    </div>
+
+                    <select name="rooms" id="rooms">
+                        <option value="1">Комнат</option>
+                    </select>
+
+                    <div class="real_estate_area">
+                        <input type="number" id="area_from" placeholder="Площадь от" min="0">
+                        <input type="number" id="area_up_to" placeholder="до" min="0">
+                        <span>м²</span>
+                    </div>
+
+                    <div class="real_estate_address">
+                        <img src="images/search.svg" alt="search" width="15" height="15">
+                        <input type="text" id="address" placeholder="Район, адрес, ориентир">
+                    </div>
+
+                    <div class="main_content_tab_window_filters">
+                        <button class="more_filters">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Еще фильтры</span>
+                        </button>
+
+                        <div class="plug"></div>
+
+                        <button class="clear_filters">
+                            <i class="fas fa-times"></i>
+                            <span>Очистить</span>
+                        </button>
+
+                        <button class="show_on_map">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>На карте</span>
+                        </button>
+
+                        <button class="ads">1678 объявлений</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main_rent_methods wrapper">
+            <h2>Арендуйте недвижимость по-новому на Dconto</h2>
+
+            <div class="main_rent_methods_tiles">
+                <a href="#" class="main_rent_methods_tile">
+                    <img src="images/rent_icon_1.svg" alt="icon">
+                    <h3>Аренда и оплата<i class="fas fa-angle-right"></i></h3>
+                    <p>Классическая форма аренды. Стороны заключают контракт аренды, согласно которому арендатор платит арендодателю за объект недвижимости, предоставленный во временное пользование.</p>
+                </a>
+
+                <a href="#" class="main_rent_methods_tile">
+                    <img class="rent_method_green" src="images/rent_icon_2.svg" alt="icon">
+                    <h3>Аренда со скидкой<i class="fas fa-angle-right"></i></h3>
+                    <p>Форма аренды с уникальной системой мотивации сторон путем бонусов и штрафов. Бонусы начисляются арендатору за выполнение определенных пунктов контракта, а штрафы - за их несоблюдение.</p>
+                </a>
+
+                <a href="#" class="main_rent_methods_tile">
+                    <img src="images/rent_icon_3.svg" alt="icon">
+                    <h3>Аренда за помощь<i class="fas fa-angle-right"></i></h3>
+                    <p>Форма аренды, при которой в качестве частичной или полной оплаты предполагается помощь. Тип помощи и условия указываются сторонами в объявлениях, а затем фиксируются в виртуальном договоре аренды.</p>
+                </a>
+
+                <a href="#" class="main_rent_methods_tile">
+                    <img class="rent_method_green" src="images/rent_icon_4.svg" alt="icon">
+                    <h3>Аренда с заработком<i class="fas fa-angle-right"></i></h3>
+                    <p>Форма аренды, при которой, помимо предоставленной во временное пользование недвижимости, арендодатель готов заплатить арендатору за помощь. Условия фиксируются в виртуальном договоре аренды.</p>
+                </a>
+
+                <a href="#" class="main_rent_methods_tile">
+                    <img src="images/rent_icon_5.svg" alt="icon">
+                    <h3>Аренда с обучением<i class="fas fa-angle-right"></i></h3>
+                    <p>Форма аренды, при которой в качестве полной или частичной оплаты выступает обмен знаниями и навыками. В роли обучающего может выступать как арендатор, так и арендодатель.</p>
+                </a>
+
+                <a href="#" class="main_rent_methods_tile">
+                    <img class="rent_method_green" src="images/rent_icon_6.svg" alt="icon" style="padding: 20px 7px">
+                    <h3>Бесплатная аренда<i class="fas fa-angle-right"></i></h3>
+                    <p>Форма бесплатной аренды, просто так, для общения! Предполагается обмен информацией, прогулки, спорт, совместное посещение достопримечательностей и то, что будет интересно обеим сторонам.</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="main_opportunities">
+            <div class="main_opportunities_content wrapper">
+                <h2>Ваши уникальные возможности на Dconto</h2>
+
+                <div class="main_opportunities_content_tiles">
+                    <a href="#" class="main_opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icon_1.svg" alt="icon">
+                        <h3>Информативные профили<i class="fas fa-angle-right"></i></h3>
+                        <p>Персональный профиль - это мощный инструмент взаимодействия пользователей. Чем лучше заполнен ваш профиль, тем больше о вас узнают другие пользователи, тем охотнее они будут заключать с вами сделки!</p>
+                    </a>
+
+                    <a href="#" class="main_opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icon_2.svg" alt="icon">
+                        <h3>Виртуальные подписи<i class="fas fa-angle-right"></i></h3>
+                        <p>Виртуальная подпись позволяет пользователю подписывать контракты дистанционно, используя компьютер, телефон или планшет. Виртуальная подпись Dconto обладает той же юридической силой, что и рукописная.</p>
+                    </a>
+
+                    <a href="#" class="main_opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icon_3.svg" alt="icon">
+                        <h3>Виртуальный контракт<i class="fas fa-angle-right"></i></h3>
+                        <p>Виртуальный контракт содержит уникальную систему мотивации сторон, которая повышает прозрачность и надежность сделки. Несколько пользователей могут участвовать в одном виртуальном контракте.</p>
+                    </a>
+
+                    <a href="#" class="main_opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icon_4.svg" alt="icon">
+                        <h3>Виртуальный акт передачи<i class="fas fa-angle-right"></i></h3>
+                        <p>Виртуальный акт передачи - это удобный инструмент, позволяющий быстро и легко зафиксировать все особенности арендуемой или сдаваемой в аренду недвижимости без необходимости личной встречи.</p>
+                    </a>
+
+                    <a href="#" class="main_opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icon_5.svg" alt="icon">
+                        <h3>Домовая книга<i class="fas fa-angle-right"></i></h3>
+                        <p>Домовая книга - это инструмент для хранения всей информации о вашей недвижимости. Подробно заполненная домовая книга в разы увеличит интерес и доверие к вашему объекту, что выгодно отразится на его стоимости.</p>
+                    </a>
+
+                    <a href="#" class="main_opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icon_6.svg" alt="icon">
+                        <h3>Аренда с продажей<i class="fas fa-angle-right"></i></h3>
+                        <p>Еще не решили продавать свою недвижимость, которую сдаете в аренду, но готовы выслушать предложения о покупке? Отметьте в своем объявлении , что готовы рассмотреть варианты продажи, и потенциальные покупатели сами свяжутся с вами!</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main_invest">
+            <div class="main_invest_content wrapper">
+                <h2>Хотите оказать поддержку Dconto?</h2>
+
+                <p>Dconto - это бесплатный сервис для всех его пользователей! Это также сложный в технической реализации и продвижении международный проект. Мы не откажемся от помощи  инвесторов, специалистов и волонтеров, разделяющих наше видение, чтобы у всех участников рынка недвижимости было больше возможностей, а их взаимодействие - безопасным, взаимовыгодным и максимально удобным.</p>
+
+                <div class="main_invest_content_links">
+                    <a href="#" class="main_invest_content_link">
+
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer wrapper">
+            Footer
+        </div>
+    </footer>
+</body>
+</html>
