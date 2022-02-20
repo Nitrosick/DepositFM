@@ -4,6 +4,7 @@ body {
   min-height: 100vh;
   font-family: Roboto, sans-serif;
   color: #333333;
+  box-sizing: border-box;
 }
 button {
   background-color: transparent;
@@ -11,24 +12,35 @@ button {
   color: #333333;
   cursor: pointer;
 }
-select {
+select,
+input {
   box-sizing: border-box;
+  flex-grow: 1;
   outline: none;
   border: 2px solid #e3e3e3;
   color: #7f7f7f;
   font-size: 14px;
   border-radius: 6px;
   padding: 7px;
-}
-input {
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  color: #7f7f7f;
-  font-size: 14px;
-  padding: 7px;
   background-color: transparent;
-  max-width: 135px;
+}
+select:focus,
+input:focus,
+select:active,
+input:active {
+  border: 2px solid #0084cc;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]:hover,
+input[type="number"]:focus {
+  -moz-appearance: number-input;
 }
 a {
   text-decoration: none;
@@ -40,13 +52,13 @@ a {
   padding: 0 20px;
 }
 .marks,
-header .header_notification_mark,
-header .header_comments_mark,
-header .header_like_mark {
+.header_notification_mark,
+.header_comments_mark,
+.header_like_mark {
   display: block;
   position: absolute;
-  top: -7px;
-  right: 3px;
+  top: 15px;
+  right: 5px;
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -62,54 +74,72 @@ header .header_like_mark {
 .plug {
   flex-grow: 1;
 }
-header .header {
+.site_logo {
+  display: flex;
+  align-items: center;
+  margin-right: 70px;
+}
+.site_logo_text {
+  margin-left: 7px;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: white;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+}
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
   font-size: 14px;
 }
-header .header_logo {
-  display: flex;
-  align-items: center;
-  margin-right: 70px;
+.header_geoposition {
+  height: 100%;
+  padding: 4px 10px 0 10px;
+  border-bottom: 4px solid transparent;
 }
-header .header_logo_text {
-  margin-left: 7px;
-}
-header .header_geoposition {
-  padding: 0 10px;
-}
-header .header_geoposition .fas {
+.header_geoposition .fas {
   font-size: 12px;
   margin-right: 13px;
 }
-header .header_currency,
-header .header_create,
-header .header_user {
-  padding: 0 10px;
+.header_geoposition:hover {
+  border-bottom: 4px solid #0084cc;
 }
-header .header_currency_button,
-header .header_create_button,
-header .header_user_button {
+.header_geoposition:hover .fas {
+  color: #0084cc;
+}
+.header_currency,
+.header_create,
+.header_user {
+  padding: 4px 10px 0 10px;
+  border-bottom: 4px solid transparent;
+}
+.header_currency_button,
+.header_create_button,
+.header_user_button {
+  height: 62px;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
-header .header_currency_button img,
-header .header_create_button img,
-header .header_user_button img {
+.header_currency_button img,
+.header_create_button img,
+.header_user_button img {
   margin-right: 10px;
 }
-header .header_currency_button .fas,
-header .header_create_button .fas,
-header .header_user_button .fas {
+.header_currency_button .fas,
+.header_create_button .fas,
+.header_user_button .fas {
   margin-left: 13px;
   font-size: 18px;
 }
-header .header_currency_button_icon,
-header .header_create_button_icon,
-header .header_user_button_icon {
+.header_currency_button_icon,
+.header_create_button_icon,
+.header_user_button_icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,158 +150,45 @@ header .header_user_button_icon {
   font-size: 20px;
   margin-right: 16px;
 }
-header .header_buttons {
+.header_currency:hover,
+.header_create:hover,
+.header_user:hover {
+  border-bottom: 4px solid #0084cc;
+}
+.header_currency_menu,
+.header_create_menu,
+.header_user_menu {
+  display: none;
+}
+.header_buttons {
   display: flex;
   align-items: center;
   margin-left: 120px;
 }
-header .header_notification,
-header .header_comments,
-header .header_like {
+.header_notification,
+.header_comments,
+.header_like {
   position: relative;
-  padding: 0 15px;
+  height: 70px;
+  padding: 4px 15px 0 15px;
+  border-bottom: 4px solid transparent;
+}
+.header_notification:hover,
+.header_comments:hover,
+.header_like:hover {
+  border-bottom: 4px solid #0084cc;
 }
 main {
   flex-grow: 1;
+  margin-top: 70px;
 }
-main .main {
-  box-sizing: border-box;
-  min-height: 500px;
-  background-image: url(../images/main_background.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% auto;
-  padding: 70px 0;
-}
-main .main_content {
-  box-sizing: content-box;
-}
-main .main_content h1 {
+main h1 {
   font-weight: 700;
   color: white;
   line-height: 43px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.65);
   text-align: center;
   margin: 0 0 47px 0;
-}
-main .main_content_tabs {
-  display: flex;
-  justify-content: space-between;
-}
-main .main_content_tab {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 180px;
-  height: 46px;
-  background-color: white;
-  color: #0084cc;
-  font-weight: bold;
-  border-radius: 4px;
-}
-main .main_content_tab:hover {
-  background-color: #e0f0f7;
-}
-main .main_content_tab img {
-  margin-right: 12px;
-}
-main .main_content_active_tab {
-  background-color: #0084cc;
-  color: white;
-  cursor: default;
-}
-main .main_content_active_tab:hover {
-  background-color: #0084cc;
-}
-main .main_content_tab_window {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 20px;
-  background-color: white;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 4px;
-}
-main .main_content_tab_window .real_estate_price,
-main .main_content_tab_window .real_estate_area {
-  display: flex;
-  border: 2px solid #e3e3e3;
-  border-radius: 6px;
-}
-main .main_content_tab_window .real_estate_price #price_up_to,
-main .main_content_tab_window .real_estate_area #price_up_to,
-main .main_content_tab_window .real_estate_price #area_up_to,
-main .main_content_tab_window .real_estate_area #area_up_to {
-  border-left: 2px solid #e3e3e3;
-  max-width: 100px;
-}
-main .main_content_tab_window .real_estate_price span,
-main .main_content_tab_window .real_estate_area span {
-  display: block;
-  line-height: 33px;
-  color: #333333;
-  margin: 0 7px;
-  font-size: 14px;
-}
-main .main_content_tab_window .real_estate_address {
-  grid-column-start: 3;
-  grid-column-end: 5;
-  display: flex;
-  align-items: center;
-  border: 2px solid #e3e3e3;
-  border-radius: 6px;
-  padding-left: 7px;
-}
-main .main_content_tab_window .real_estate_address #address {
-  max-width: none;
-  flex-grow: 1;
-  margin-left: 7px;
-}
-main .main_content_tab_window_filters {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-}
-main .main_content_tab_window_filters .more_filters {
-  display: flex;
-  align-items: center;
-  color: #0084cc;
-  font-weight: bold;
-}
-main .main_content_tab_window_filters .clear_filters {
-  display: flex;
-  align-items: center;
-  color: #aaaaaa;
-  padding: 0 22px;
-}
-main .main_content_tab_window_filters .show_on_map {
-  display: flex;
-  align-items: center;
-  color: #0084cc;
-  font-weight: bold;
-  padding: 0 30px;
-  margin: 0 20px;
-  border: 2px solid #0084cc;
-  border-radius: 6px;
-  height: 100%;
-}
-main .main_content_tab_window_filters .show_on_map:hover {
-  background-color: #e0f0f7;
-}
-main .main_content_tab_window_filters .ads {
-  line-height: 40px;
-  background-color: #0084cc;
-  color: white;
-  font-weight: bold;
-  padding: 0 30px;
-  border-radius: 6px;
-}
-main .main_content_tab_window_filters .fas {
-  margin-right: 10px;
 }
 main h2 {
   color: #004870;
@@ -297,16 +214,162 @@ main p {
   line-height: 20px;
   margin: 0;
 }
-main .main_rent_methods {
+.main {
+  box-sizing: border-box;
+  min-height: 500px;
+  background-image: url(../images/main_background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+  padding: 70px 0;
+}
+.main_content_tabs {
+  display: flex;
+  justify-content: space-between;
+}
+.main_content_tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 46px;
+  background-color: white;
+  color: #0084cc;
+  font-weight: bold;
+  border-radius: 4px;
+}
+.main_content_tab:hover {
+  background-color: #f0f3fb;
+}
+.main_content_tab img {
+  margin-right: 12px;
+}
+.main_content_active_tab {
+  background-color: #0084cc;
+  color: white;
+  cursor: default;
+}
+.main_content_active_tab:hover {
+  background-color: #0084cc;
+}
+.main_content_tab_window {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+.main_content_tab_window .real_estate_price,
+.main_content_tab_window .real_estate_area {
+  display: flex;
+  position: relative;
+}
+.main_content_tab_window .real_estate_price #price_from,
+.main_content_tab_window .real_estate_area #price_from,
+.main_content_tab_window .real_estate_price #area_from,
+.main_content_tab_window .real_estate_area #area_from {
+  max-width: 135px;
+  border-radius: 6px 0 0 6px;
+  border-right-width: 1px;
+}
+.main_content_tab_window .real_estate_price #price_up_to,
+.main_content_tab_window .real_estate_area #price_up_to,
+.main_content_tab_window .real_estate_price #area_up_to,
+.main_content_tab_window .real_estate_area #area_up_to {
+  max-width: 135px;
+  border-radius: 0 6px 6px 0;
+  border-left-width: 1px;
+}
+.main_content_tab_window .real_estate_price span,
+.main_content_tab_window .real_estate_area span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  line-height: 40px;
+  color: #333333;
+  margin: 0 10px;
+  font-size: 14px;
+}
+.main_content_tab_window .real_estate_address {
+  position: relative;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+.main_content_tab_window .real_estate_address #address {
+  width: 100%;
+  height: 100%;
+  padding-left: 45px;
+}
+.main_content_tab_window .real_estate_address img {
+  position: absolute;
+  top: 13px;
+  left: 15px;
+}
+.main_content_tab_window_filters {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+.main_content_tab_window_filters .more_filters {
+  display: flex;
+  align-items: center;
+  color: #0084cc;
+  font-weight: bold;
+}
+.main_content_tab_window_filters .more_filters:hover span {
+  text-decoration: underline;
+}
+.main_content_tab_window_filters .clear_filters {
+  display: flex;
+  align-items: center;
+  color: #aaaaaa;
+  padding: 0 22px;
+}
+.main_content_tab_window_filters .show_on_map {
+  display: flex;
+  align-items: center;
+  color: #0084cc;
+  font-weight: bold;
+  padding: 0 30px;
+  margin: 0 20px;
+  border: 2px solid #0084cc;
+  border-radius: 6px;
+  height: 100%;
+}
+.main_content_tab_window_filters .show_on_map:hover {
+  background-color: #f0f3fb;
+}
+.main_content_tab_window_filters .ads {
+  line-height: 40px;
+  background-color: #0084cc;
+  color: white;
+  font-weight: bold;
+  padding: 0 30px;
+  border-radius: 6px;
+}
+.main_content_tab_window_filters .ads:hover {
+  background: linear-gradient(90deg, #0084cc, #5eb4e2);
+}
+.main_content_tab_window_filters .fas {
+  margin-right: 10px;
+}
+.rent_methods {
   padding: 35px 20px 0 20px;
 }
-main .main_rent_methods_tiles {
+.rent_methods_tiles {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 25px 0;
 }
-main .main_rent_methods_tile {
+.rent_methods_tile {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -319,31 +382,37 @@ main .main_rent_methods_tile {
   border: 1px solid #d7d7d7;
   border-radius: 6px;
 }
-main .main_rent_methods_tile img {
+.rent_methods_tile img {
   background-color: #0084cc;
   border-radius: 6px;
   padding: 7px;
 }
-main .main_rent_methods_tile .rent_method_green {
+.rent_methods_tile .rent_method_green {
   background-color: #009a34;
 }
-main .main_rent_methods_tile p {
+.rent_methods_tile p {
   text-align: center;
 }
-main .main_opportunities {
-  background-color: #e3e3e3;
+.rent_methods_tile:hover {
+  box-shadow: 0 0 10px -5px black;
 }
-main .main_opportunities_content {
+.rent_methods_tile:hover h3 {
+  text-decoration: underline;
+}
+.opportunities {
+  background-color: #f0f3fb;
+}
+.opportunities_content {
   padding: 50px 20px 55px 20px;
 }
-main .main_opportunities_content_tiles {
+.opportunities_content_tiles {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
   gap: 20px;
   margin-top: 30px;
 }
-main .main_opportunities_content_tile {
+.opportunities_content_tile {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
@@ -353,11 +422,17 @@ main .main_opportunities_content_tile {
   border-radius: 6px;
   padding: 30px;
 }
-main .main_opportunities_content_tile .opportunities_icon {
+.opportunities_content_tile .opportunities_icon {
   grid-row-start: 1;
   grid-row-end: 3;
 }
-main .main_invest {
+.opportunities_content_tile:hover {
+  box-shadow: 0 0 10px -5px black;
+}
+.opportunities_content_tile:hover h3 {
+  text-decoration: underline;
+}
+.invest {
   box-sizing: border-box;
   min-height: 420px;
   background-image: url(../images/main_background.jpg);
@@ -365,14 +440,14 @@ main .main_invest {
   background-position: center;
   background-size: 100% auto;
 }
-main .main_invest_content {
+.invest_content {
   padding: 50px 20px 80px 20px;
 }
-main .main_invest_content h2 {
+.invest_content h2 {
   color: white;
   font-weight: 700;
 }
-main .main_invest_content p {
+.invest_content p {
   color: white;
   font-size: 20px;
   line-height: 28px;
@@ -380,7 +455,76 @@ main .main_invest_content p {
   text-align: center;
   font-weight: 400;
 }
-main .main_invest_content_links {
+.invest_content_links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.invest_content_link {
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  color: #0084cc;
+  font-size: 14px;
+  font-weight: 500;
+  height: 60px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px;
+  flex-grow: 1;
+}
+.invest_content_link .invest_link_icon_block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: #009a34;
+  margin-right: 15px;
+}
+.invest_content_link:hover span {
+  text-decoration: underline;
+}
+.partners {
+  background-color: #f0f3fb;
+}
+.partners_content {
+  padding: 50px 20px 70px 20px;
+}
+.partners_content_logos {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.partners_content_logos .partner_logo_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 380px;
+  height: 180px;
+  border-radius: 6px;
+  margin: 0 10px;
+  box-shadow: 0px 0px 4px 0px rgba(54, 54, 54, 0.25);
+}
+.footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 45px 20px 70px 20px;
+  font-size: 14px;
+}
+.footer .copyright {
+  display: block;
+  font-size: 12px;
+  margin-top: 18px;
+}
+.footer ul {
+  list-style-type: none;
+  padding: 0;
+  padding-top: 10px;
+  margin: 0;
+}
+.footer ul li {
+  margin-bottom: 18px;
 }

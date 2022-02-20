@@ -1,5 +1,5 @@
 @blue-color: #0084cc;
-@light-blue-color: rgb(224,240,247);
+@light-blue-color: #f0f3fb;
 @dark-blue-color: #004870;
 @grey-color: #7f7f7f;
 @light-grey-color: #e3e3e3;
@@ -12,6 +12,7 @@ body {
     min-height: 100vh;
     font-family: Roboto, sans-serif;
     color: @text-color;
+    box-sizing: border-box;
 }
 
 button {
@@ -21,25 +22,37 @@ button {
     cursor: pointer;
 }
 
-select {
+select,
+input {
     box-sizing: border-box;
+    flex-grow: 1;
     outline: none;
     border: 2px solid @light-grey-color;
     color: @grey-color;
     font-size: 14px;
     border-radius: 6px;
     padding: 7px;
+    background-color: transparent;
+
+    &:focus,
+    &:active {
+        border: 2px solid @blue-color;
+    }
 }
 
-input {
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    color: @grey-color;
-    font-size: 14px;
-    padding: 7px;
-    background-color: transparent;
-    max-width: 135px;
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]:hover,
+input[type="number"]:focus {
+    -moz-appearance: number-input;
 }
 
 a {
@@ -56,8 +69,8 @@ a {
 .marks {
     display: block;
     position: absolute;
-    top: -7px;
-    right: 3px;
+    top: 15px;
+    right: 5px;
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -76,248 +89,129 @@ a {
     flex-grow: 1;
 }
 
+.site_logo {
+    display: flex;
+    align-items: center;
+    margin-right: 70px;
+
+    &_text {
+        margin-left: 7px;
+    }
+}
+
 header {
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 70px;
-        font-size: 14px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: white;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+}
 
-        &_logo {
-            display: flex;
-            align-items: center;
-            margin-right: 70px;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    font-size: 14px;
 
-            &_text {
-                margin-left: 7px;
-            }
+    &_geoposition {
+        height: 100%;
+        padding: 4px 10px 0 10px;
+        border-bottom: 4px solid transparent;
+
+        .fas {
+            font-size: 12px;
+            margin-right: 13px;
         }
 
-        &_geoposition {
-            padding: 0 10px;
+        &:hover {
+            border-bottom: 4px solid @blue-color;
 
             .fas {
-                font-size: 12px;
-                margin-right: 13px;
+                color: @blue-color;
             }
         }
+    }
 
-        &_currency,
-        &_create,
-        &_user {
-            padding: 0 10px;
+    &_currency,
+    &_create,
+    &_user {
+        padding: 4px 10px 0 10px;
+        border-bottom: 4px solid transparent;
 
-            &_button {
-                display: flex;
-                align-items: center;
-                cursor: pointer;
-
-                img {
-                    margin-right: 10px;
-                }
-
-                .fas {
-                    margin-left: 13px;
-                    font-size: 18px;
-                }
-
-                &_icon {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: @blue-color;
-                    width: 24px;
-                    height: 24px;
-                    color: white;
-                    font-size: 20px;
-                    margin-right: 16px;
-                }
-            }
-
-            &_menu {
-
-            }
-        }
-
-        &_buttons {
+        &_button {
+            height: 62px;
             display: flex;
             align-items: center;
-            margin-left: 120px;
+            cursor: pointer;
+
+            img {
+                margin-right: 10px;
+            }
+
+            .fas {
+                margin-left: 13px;
+                font-size: 18px;
+            }
+
+            &_icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: @blue-color;
+                width: 24px;
+                height: 24px;
+                color: white;
+                font-size: 20px;
+                margin-right: 16px;
+            }
         }
 
-        &_notification,
-        &_comments,
-        &_like {
-            position: relative;
-            padding: 0 15px;
+        &:hover {
+            border-bottom: 4px solid @blue-color;
+        }
 
-            &_mark {
-                &:extend(.marks);
-            }
+        &_menu {
+            display: none;
+        }
+    }
+
+    &_buttons {
+        display: flex;
+        align-items: center;
+        margin-left: 120px;
+    }
+
+    &_notification,
+    &_comments,
+    &_like {
+        position: relative;
+        height: 70px;
+        padding: 4px 15px 0 15px;
+        border-bottom: 4px solid transparent;
+
+        &_mark {
+            &:extend(.marks);
+        }
+
+        &:hover {
+            border-bottom: 4px solid @blue-color;
         }
     }
 }
 
 main {
     flex-grow: 1;
+    margin-top: 70px;
 
-    .main {
-        box-sizing: border-box;
-        min-height: 500px;
-        background-image: url(../images/main_background.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 100% auto;
-        padding: 70px 0;
-
-        &_content {
-            box-sizing: content-box;
-
-            h1 {
-                font-weight: 700;
-                color: white;
-                line-height: 43px;
-                text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.65);
-                text-align: center;
-                margin: 0 0 47px 0;
-            }
-
-            &_tabs {
-                display: flex;
-                justify-content: space-between;
-            }
-
-            &_tab {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 180px;
-                height: 46px;
-                background-color: white;
-                color: @blue-color;
-                font-weight: bold;
-                border-radius: 4px;
-
-                &:hover {
-                    background-color: @light-blue-color;
-                }
-
-                img {
-                    margin-right: 12px;
-                }
-            }
-
-            &_active_tab {
-                background-color: @blue-color;
-                color: white;
-                cursor: default;
-
-                &:hover {
-                    background-color: @blue-color;
-                }
-            }
-
-            &_tab_window {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                grid-template-rows: repeat(3, 1fr);
-                gap: 20px;
-                background-color: white;
-                padding: 20px;
-                margin-top: 20px;
-                border-radius: 4px;
-
-                .real_estate_price,
-                .real_estate_area {
-                    display: flex;
-                    border: 2px solid @light-grey-color;
-                    border-radius: 6px;
-
-                    #price_up_to,
-                    #area_up_to {
-                        border-left: 2px solid @light-grey-color;
-                        max-width: 100px;
-                    }
-
-                    span {
-                        display: block;
-                        line-height: 33px;
-                        color: @text-color;
-                        margin: 0 7px;
-                        font-size: 14px;
-                    }
-                }
-
-                .real_estate_address {
-                    grid-column-start: 3;
-                    grid-column-end: 5;
-                    display: flex;
-                    align-items: center;
-                    border: 2px solid @light-grey-color;
-                    border-radius: 6px;
-                    padding-left: 7px;
-
-                    #address {
-                        max-width: none;
-                        flex-grow: 1;
-                        margin-left: 7px;
-                    }
-                }
-
-                &_filters {
-                    grid-column-start: 1;
-                    grid-column-end: 5;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    font-size: 14px;
-
-                    .more_filters {
-                        display: flex;
-                        align-items: center;
-                        color: @blue-color;
-                        font-weight: bold;
-                    }
-
-                    .clear_filters {
-                        display: flex;
-                        align-items: center;
-                        color: #aaaaaa;
-                        padding: 0 22px;
-                    }
-
-                    .show_on_map {
-                        display: flex;
-                        align-items: center;
-                        color: @blue-color;
-                        font-weight: bold;
-                        padding: 0 30px;
-                        margin: 0 20px;
-                        border: 2px solid @blue-color;
-                        border-radius: 6px;
-                        height: 100%;
-
-                        &:hover {
-                            background-color: @light-blue-color;
-                        }
-                    }
-
-                    .ads {
-                        line-height: 40px;
-                        background-color: @blue-color;
-                        color: white;
-                        font-weight: bold;
-                        padding: 0 30px;
-                        border-radius: 6px;
-                    }
-
-                    .fas {
-                        margin-right: 10px;
-                    }
-                }
-            }
-        }
+    h1 {
+        font-weight: 700;
+        color: white;
+        line-height: 43px;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.65);
+        text-align: center;
+        margin: 0 0 47px 0;
     }
 
     h2 {
@@ -347,117 +241,378 @@ main {
         line-height: 20px;
         margin: 0;
     }
+}
 
-    .main_rent_methods {
-        padding: 35px 20px 0 20px;
+.main {
+    box-sizing: border-box;
+    min-height: 500px;
+    background-image: url(../images/main_background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+    padding: 70px 0;
 
-        &_tiles {
+    &_content {
+        &_tabs {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
-            padding: 25px 0;
         }
 
-        &_tile {
-            box-sizing: border-box;
+        &_tab {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            width: 380px;
-            height: 260px;
-            padding: 30px 20px;
-            margin-bottom: 20px;
-            border: 1px solid #d7d7d7;
-            border-radius: 6px;
+            width: 180px;
+            height: 46px;
+            background-color: white;
+            color: @blue-color;
+            font-weight: bold;
+            border-radius: 4px;
+
+            &:hover {
+                background-color: @light-blue-color;
+            }
 
             img {
-                background-color: @blue-color;
-                border-radius: 6px;
-                padding: 7px;
-            }
-
-            .rent_method_green {
-                background-color: @green-color;
-            }
-
-            p {
-                text-align: center;
+                margin-right: 12px;
             }
         }
-    }
 
-    .main_opportunities {
-        background-color: @light-grey-color;
+        &_active_tab {
+            background-color: @blue-color;
+            color: white;
+            cursor: default;
 
-        &_content {
-            padding: 50px 20px 55px 20px;
-
-            &_tiles {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: repeat(3, 1fr);
-                gap: 20px;
-                margin-top: 30px;
+            &:hover {
+                background-color: @blue-color;
             }
+        }
 
-            &_tile {
-                display: grid;
-                grid-template-columns: auto 1fr;
-                grid-template-rows: auto 1fr;
-                gap: 10px 30px;
-                box-sizing: border-box;
-                background-color: white;
-                border-radius: 6px;
-                padding: 30px;
+        &_tab_window {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px;
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 4px;
 
-                .opportunities_icon {
-                    grid-row-start: 1;
-                    grid-row-end: 3;
+            .real_estate_price,
+            .real_estate_area {
+                display: flex;
+                position: relative;
+
+                #price_from,
+                #area_from {
+                    max-width: 135px;
+                    border-radius: 6px 0 0 6px;
+                    border-right-width: 1px;
+                }
+
+                #price_up_to,
+                #area_up_to {
+                    max-width: 135px;
+                    border-radius: 0 6px 6px 0;
+                    border-left-width: 1px;
+                }
+
+                span {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    display: block;
+                    line-height: 40px;
+                    color: @text-color;
+                    margin: 0 10px;
+                    font-size: 14px;
                 }
             }
-        }
-    }
 
-    .main_invest {
-        box-sizing: border-box;
-        min-height: 420px;
-        background-image: url(../images/main_background.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 100% auto;
+            .real_estate_address {
+                position: relative;
+                grid-column-start: 3;
+                grid-column-end: 5;
 
-        &_content {
-            padding: 50px 20px 80px 20px;
+                #address {
+                    width: 100%;
+                    height: 100%;
+                    padding-left: 45px;
+                }
 
-            h2 {
-                color: white;
-                font-weight: 700;
+                img {
+                    position: absolute;
+                    top: 13px;
+                    left: 15px;
+                }
             }
 
-            p {
-                color: white;
-                font-size: 20px;
-                line-height: 28px;
-                margin: 20px 0 55px 0;
-                text-align: center;
-                font-weight: 400;
-            }
-
-            &_links {
+            &_filters {
+                grid-column-start: 1;
+                grid-column-end: 5;
                 display: flex;
                 justify-content: space-between;
-            }
+                align-items: center;
+                font-size: 14px;
 
-            &_link {
+                .more_filters {
+                    display: flex;
+                    align-items: center;
+                    color: @blue-color;
+                    font-weight: bold;
 
+                    &:hover {
+                        span {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .clear_filters {
+                    display: flex;
+                    align-items: center;
+                    color: #aaaaaa;
+                    padding: 0 22px;
+                }
+
+                .show_on_map {
+                    display: flex;
+                    align-items: center;
+                    color: @blue-color;
+                    font-weight: bold;
+                    padding: 0 30px;
+                    margin: 0 20px;
+                    border: 2px solid @blue-color;
+                    border-radius: 6px;
+                    height: 100%;
+
+                    &:hover {
+                        background-color: @light-blue-color;
+                    }
+                }
+
+                .ads {
+                    line-height: 40px;
+                    background-color: @blue-color;
+                    color: white;
+                    font-weight: bold;
+                    padding: 0 30px;
+                    border-radius: 6px;
+
+                    &:hover {
+                        background: linear-gradient(90deg, @blue-color, #5eb4e2);
+                    }
+                }
+
+                .fas {
+                    margin-right: 10px;
+                }
             }
         }
     }
 }
 
-footer {
-    .footer {
+.rent_methods {
+    padding: 35px 20px 0 20px;
 
+    &_tiles {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 25px 0;
+    }
+
+    &_tile {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 380px;
+        height: 260px;
+        padding: 30px 20px;
+        margin-bottom: 20px;
+        border: 1px solid #d7d7d7;
+        border-radius: 6px;
+
+        img {
+            background-color: @blue-color;
+            border-radius: 6px;
+            padding: 7px;
+        }
+
+        .rent_method_green {
+            background-color: @green-color;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        &:hover {
+            box-shadow: 0 0 10px -5px black;
+
+            h3 {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.opportunities {
+    background-color: @light-blue-color;
+
+    &_content {
+        padding: 50px 20px 55px 20px;
+
+        &_tiles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        &_tile {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 10px 30px;
+            box-sizing: border-box;
+            background-color: white;
+            border-radius: 6px;
+            padding: 30px;
+
+            .opportunities_icon {
+                grid-row-start: 1;
+                grid-row-end: 3;
+            }
+
+            &:hover {
+                box-shadow: 0 0 10px -5px black;
+
+                h3 {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.invest {
+    box-sizing: border-box;
+    min-height: 420px;
+    background-image: url(../images/main_background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+
+    &_content {
+        padding: 50px 20px 80px 20px;
+
+        h2 {
+            color: white;
+            font-weight: 700;
+        }
+
+        p {
+            color: white;
+            font-size: 20px;
+            line-height: 28px;
+            margin: 20px 0 55px 0;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        &_links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        &_link {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: @blue-color;
+            font-size: 14px;
+            font-weight: 500;
+            height: 60px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 6px;
+            flex-grow: 1;
+
+            .invest_link_icon_block {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 6px;
+                background-color: @green-color;
+                margin-right: 15px;
+            }
+
+            &:hover {
+                span {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.partners {
+    background-color: @light-blue-color;
+
+    &_content {
+        padding: 50px 20px 70px 20px;
+
+        &_logos {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+
+            .partner_logo_block {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 380px;
+                height: 180px;
+                border-radius: 6px;
+                margin: 0 10px;
+                box-shadow: 0px 0px 4px 0px rgba(54, 54, 54, 0.25);
+            }
+        }
+    }
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 45px 20px 70px 20px;
+    font-size: 14px;
+
+    &_block {
+
+    }
+
+    .copyright {
+        display: block;
+        font-size: 12px;
+        margin-top: 18px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        padding-top: 10px;
+        margin: 0;
+
+        li {
+            margin-bottom: 18px;
+        }
     }
 }
