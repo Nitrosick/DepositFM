@@ -42,9 +42,79 @@ input[type="number"]:hover,
 input[type="number"]:focus {
   -moz-appearance: number-input;
 }
+.custom_form {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #e3e3e3;
+  color: #7f7f7f;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 0 10px;
+  height: 40px;
+  cursor: pointer;
+}
+.custom_form_options {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  background-color: white;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 7px -3px black;
+  z-index: 2;
+}
+.custom_form_value {
+  display: block;
+}
+.custom_form .fas {
+  transition: 0.5s;
+}
+.custom_select option {
+  line-height: 35px;
+  padding: 0 15px;
+  color: #333333;
+}
+.custom_select option:hover {
+  background-color: #f0f3fb;
+}
+.custom_checkboxes .custom_checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  height: 40px;
+  color: #333333;
+}
+.custom_checkboxes .custom_checkbox_mark {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #0084cc;
+  border-radius: 4px;
+}
+.custom_checkboxes .custom_checkbox img {
+  margin: 0 15px;
+}
+.custom_checkboxes .custom_checkbox_layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.custom_form_active {
+  border-color: #0084cc;
+}
 a {
   text-decoration: none;
   color: #333333;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 .wrapper {
   max-width: 1180px;
@@ -69,7 +139,7 @@ a {
   text-align: center;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 .plug {
   flex-grow: 1;
@@ -89,6 +159,7 @@ header {
   width: 100vw;
   background-color: white;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+  z-index: 2;
 }
 .header {
   display: flex;
@@ -115,6 +186,7 @@ header {
 .header_currency,
 .header_create,
 .header_user {
+  position: relative;
   padding: 4px 10px 0 10px;
   border-bottom: 4px solid transparent;
 }
@@ -157,8 +229,100 @@ header {
 }
 .header_currency_menu,
 .header_create_menu,
-.header_user_menu {
-  display: none;
+.header_user_menu,
+.header_currency_accounts,
+.header_create_accounts,
+.header_user_accounts {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  padding: 10px 0;
+  background-color: white;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 7px -3px black;
+}
+.header_currency_menu {
+  padding: 20px;
+}
+.header_currency_menu span {
+  display: block;
+  font-style: 12px;
+}
+.header_currency_menu select {
+  color: #333333;
+  border-color: #0084cc;
+  margin: 9px 0 25px 0;
+  width: 100%;
+}
+.header_currency_menu_buttons {
+  display: flex;
+}
+.header_currency_menu_buttons button {
+  padding: 12px 20px;
+  color: #0084cc;
+  border-radius: 6px;
+}
+.header_currency_menu_buttons .save {
+  background-color: #0084cc;
+  color: white;
+  margin-left: 20px;
+}
+.header_currency_menu_buttons .save:hover {
+  background: linear-gradient(90deg, #0084cc, #5eb4e2);
+}
+.header_create_menu,
+.header_user_menu,
+.header_user_accounts {
+  right: 0;
+  left: auto;
+  min-width: 240px;
+}
+.header_create_menu .splitter,
+.header_user_menu .splitter,
+.header_user_accounts .splitter {
+  padding: 0;
+  margin: 8px 0;
+  height: 1px;
+  background-color: #e3e3e3;
+}
+.header_create_menu a,
+.header_user_menu a,
+.header_user_accounts a,
+.header_create_menu button,
+.header_user_menu button,
+.header_user_accounts button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  line-height: 40px;
+  width: 100%;
+  padding: 0 15px;
+}
+.header_create_menu a img,
+.header_user_menu a img,
+.header_user_accounts a img,
+.header_create_menu button img,
+.header_user_menu button img,
+.header_user_accounts button img {
+  margin-right: 10px;
+}
+.header_create_menu a:hover,
+.header_user_menu a:hover,
+.header_user_accounts a:hover,
+.header_create_menu button:hover,
+.header_user_menu button:hover,
+.header_user_accounts button:hover {
+  background-color: #f0f3fb;
+}
+.header_create_menu .accounts_back,
+.header_user_menu .accounts_back,
+.header_user_accounts .accounts_back {
+  font-weight: 500;
+}
+.header_create_menu .accounts_back .fas,
+.header_user_menu .accounts_back .fas,
+.header_user_accounts .accounts_back .fas {
+  margin-right: 15px;
 }
 .header_buttons {
   display: flex;
@@ -179,8 +343,10 @@ header {
   border-bottom: 4px solid #0084cc;
 }
 main {
+  position: relative;
   flex-grow: 1;
   margin-top: 70px;
+  z-index: 1;
 }
 main h1 {
   font-weight: 700;
@@ -261,6 +427,7 @@ main p {
   padding: 20px;
   margin-top: 20px;
   border-radius: 4px;
+  min-height: 172px;
 }
 .main_content_tab_window .real_estate_price,
 .main_content_tab_window .real_estate_area {
@@ -349,6 +516,7 @@ main p {
 .main_content_tab_window_filters .ads {
   line-height: 40px;
   background-color: #0084cc;
+  border: 2px solid #0084cc;
   color: white;
   font-weight: bold;
   padding: 0 30px;
@@ -381,14 +549,6 @@ main p {
   margin-bottom: 20px;
   border: 1px solid #d7d7d7;
   border-radius: 6px;
-}
-.rent_methods_tile img {
-  background-color: #0084cc;
-  border-radius: 6px;
-  padding: 7px;
-}
-.rent_methods_tile .rent_method_green {
-  background-color: #009a34;
 }
 .rent_methods_tile p {
   text-align: center;
@@ -520,10 +680,7 @@ main p {
   margin-top: 18px;
 }
 .footer ul {
-  list-style-type: none;
-  padding: 0;
   padding-top: 10px;
-  margin: 0;
 }
 .footer ul li {
   margin-bottom: 18px;

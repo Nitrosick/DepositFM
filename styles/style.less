@@ -55,9 +55,95 @@ input[type="number"]:focus {
     -moz-appearance: number-input;
 }
 
+.custom_form {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid @light-grey-color;
+    color: @grey-color;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 0 10px;
+    height: 40px;
+    cursor: pointer;
+
+    &_options {
+        position: absolute;
+        top: 42px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        background-color: white;
+        border-radius: 0 0 4px 4px;
+        box-shadow: 0 2px 7px -3px black;
+        z-index: 2;
+    }
+
+    &_value {
+        display: block;
+    }
+
+    .fas {
+        transition: 0.5s;
+    }
+}
+
+.custom_select {
+    option {
+        line-height: 35px;
+        padding: 0 15px;
+        color: @text-color;
+
+        &:hover {
+            background-color: @light-blue-color;
+        }
+    }
+}
+
+.custom_checkboxes {
+    .custom_checkbox {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        height: 40px;
+        color: @text-color;
+
+        &_mark {
+            width: 18px;
+            height: 18px;
+            border: 1px solid @blue-color;
+            border-radius: 4px;
+        }
+
+        img {
+            margin: 0 15px;
+        }
+
+        &_layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.custom_form_active {
+    border-color: @blue-color;
+}
+
 a {
     text-decoration: none;
     color: @text-color;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .wrapper {
@@ -82,7 +168,7 @@ a {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .plug {
@@ -106,6 +192,7 @@ header {
     width: 100vw;
     background-color: white;
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
 
 .header {
@@ -137,6 +224,7 @@ header {
     &_currency,
     &_create,
     &_user {
+        position: relative;
         padding: 4px 10px 0 10px;
         border-bottom: 4px solid transparent;
 
@@ -172,8 +260,92 @@ header {
             border-bottom: 4px solid @blue-color;
         }
 
-        &_menu {
-            display: none;
+        &_menu,
+        &_accounts {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            padding: 10px 0;
+            background-color: white;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 2px 7px -3px black;
+        }
+    }
+
+    &_currency_menu {
+        padding: 20px;
+
+        span {
+            display: block;
+            font-style: 12px;
+        }
+
+        select {
+            color: @text-color;
+            border-color: @blue-color;
+            margin: 9px 0 25px 0;
+            width: 100%;
+        }
+
+        &_buttons {
+            display: flex;
+
+            button {
+                padding: 12px 20px;
+                color: @blue-color;
+                border-radius: 6px;
+            }
+
+            .save {
+                background-color: @blue-color;
+                color: white;
+                margin-left: 20px;
+
+                &:hover {
+                    background: linear-gradient(90deg, @blue-color, #5eb4e2);
+                }
+            }
+        }
+    }
+
+    &_create_menu,
+    &_user_menu,
+    &_user_accounts {
+        right: 0;
+        left: auto;
+        min-width: 240px;
+
+        .splitter {
+            padding: 0;
+            margin: 8px 0;
+            height: 1px;
+            background-color: @light-grey-color;
+        }
+
+        a,
+        button {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            line-height: 40px;
+            width: 100%;
+            padding: 0 15px;
+
+            img {
+                margin-right: 10px;
+            }
+
+            &:hover {
+                background-color: @light-blue-color;
+            }
+        }
+
+        .accounts_back {
+            font-weight: 500;
+
+            .fas {
+                margin-right: 15px;
+            }
         }
     }
 
@@ -202,8 +374,10 @@ header {
 }
 
 main {
+    position: relative;
     flex-grow: 1;
     margin-top: 70px;
+    z-index: 1;
 
     h1 {
         font-weight: 700;
@@ -297,6 +471,7 @@ main {
             padding: 20px;
             margin-top: 20px;
             border-radius: 4px;
+            min-height: 172px;
 
             .real_estate_price,
             .real_estate_area {
@@ -394,6 +569,7 @@ main {
                 .ads {
                     line-height: 40px;
                     background-color: @blue-color;
+                    border: 2px solid @blue-color;
                     color: white;
                     font-weight: bold;
                     padding: 0 30px;
@@ -434,16 +610,6 @@ main {
         margin-bottom: 20px;
         border: 1px solid #d7d7d7;
         border-radius: 6px;
-
-        img {
-            background-color: @blue-color;
-            border-radius: 6px;
-            padding: 7px;
-        }
-
-        .rent_method_green {
-            background-color: @green-color;
-        }
 
         p {
             text-align: center;
@@ -595,10 +761,6 @@ main {
     padding: 45px 20px 70px 20px;
     font-size: 14px;
 
-    &_block {
-
-    }
-
     .copyright {
         display: block;
         font-size: 12px;
@@ -606,10 +768,7 @@ main {
     }
 
     ul {
-        list-style-type: none;
-        padding: 0;
         padding-top: 10px;
-        margin: 0;
 
         li {
             margin-bottom: 18px;
