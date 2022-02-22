@@ -19,10 +19,32 @@ const mainContentWindows = document.querySelectorAll('.main_content_tab_window')
 // Поля ввода и выбора вариантов
 const selects = document.querySelectorAll('.custom_form');
 const selectOptionsBlock = document.querySelectorAll('.custom_form_options');
+const realEstateForm = document.querySelector('#real_estate .custom_form_value');
+const roomsForm = document.querySelector('#rooms');
+const addressForm = document.querySelector('.real_estate_address');
+const parkingPlaces = document.querySelectorAll('.additional_filters_form .select_item');
+const additionalFiltersButton = document.querySelector('.more_filters');
+
+const defaultValues = new Map([
+    ['rent_select', 'На любых условиях'],
+    ['real_estate', 'Жилая недвижимость'],
+    ['rooms', 'Комнат'],
+  ]);
+
 let checkboxesArray = [];
+let rangeArray = [];
+
+// Модальное окно
+const modal = document.querySelector('.modal_window');
+const modalClose = document.querySelector('.modal_window_close');
+const additionalFilters = document.querySelector('.modal_window_additional_filters');
+const modalRentMethods = document.querySelector('.modal_window_rent_methods');
+const modalErrorReport = document.querySelector('.modal_window_error_report');
+const investLinks = document.querySelectorAll('.invest_content_link');
+const tiles = document.querySelectorAll('.rent_methods_tile, .opportunities_content_tile');
 
 // Массив всех всплывающих окон
-const menuArray = [currencyMenu, createMenu, userMenu, accountsMenu];
+const menuArray = [currencyMenu, createMenu, userMenu, accountsMenu, modal, additionalFilters, modalRentMethods, modalErrorReport];
 selectOptionsBlock.forEach(el => {
     menuArray.push(el);
 });
@@ -87,7 +109,9 @@ const selectOptions = (element, click) => {
         }
 
         if (click.className === 'custom_checkbox_layer') {
-            addCheckboxOption(element, click);
+            checkboxOptions(element, click);
+        } else if (click.classList.contains('custom_range_item')) {
+            rangeOptions(element, click);
         } else {
             optionsBar.classList.add('hidden');
             element.classList.remove('custom_form_active');
@@ -96,14 +120,17 @@ const selectOptions = (element, click) => {
     }
 };
 
-const addCheckboxOption = (form, element) => {
-    const id = element.dataset.icon;
+const checkboxOptions = (form, element) => {
+    const id = element.dataset.id;
     const output = form.querySelector('.custom_form_value');
+    const checkboxes = form.querySelectorAll('.custom_form_options .custom_checkbox_mark');
 
     if (checkboxesArray.includes(id)) {
         for (let i=0; i<checkboxesArray.length; i++) {
             if (checkboxesArray[i] === id) {
                 checkboxesArray.splice(i, 1);
+                checkboxes[id - 1].classList.remove('checked');
+                break;
             }
         }
 
@@ -111,10 +138,11 @@ const addCheckboxOption = (form, element) => {
             output.innerHTML = '';
             checkboxesOutput(output);
         } else {
-            output.textContent = 'На любых условиях';
+            output.textContent = defaultValues.get(form.id);
         }
     } else {
         checkboxesArray.push(id);
+        checkboxes[id - 1].classList.add('checked');
         output.innerHTML = '';
         checkboxesOutput(output);
     }
@@ -130,6 +158,70 @@ const checkboxesOutput = (element) => {
     });
 };
 
+const rangeOptions = (form, element) => {
+    const id = element.dataset.id;
+    const output = form.querySelector('.custom_form_value');
+    const range = form.querySelectorAll('.custom_form_options .custom_range_item');
+
+    if (rangeArray.includes(id)) {
+        for (let i=0; i<rangeArray.length; i++) {
+            if (rangeArray[i] === id) {
+                rangeArray.splice(i, 1);
+                range[id].classList.remove('selected');
+                break;
+            }
+        }
+
+        if (rangeArray.length) {
+            output.innerHTML = '';
+            rangeOutput(output);
+        } else {
+            output.textContent = defaultValues.get(form.id);
+            output.style.color = '#7f7f7f';
+        }
+    } else {
+        rangeArray.push(id);
+        range[id].classList.add('selected');
+        output.innerHTML = '';
+        rangeOutput(output);
+    }
+};
+
+const rangeOutput = (element) => {
+    rangeArray.sort();
+    element.style.color = '#333333';
+
+    if (rangeArray.length === 1) {
+        if (rangeArray[0] === '0') {
+            element.innerHTML = 'Студия';
+        } else {
+            element.innerHTML = rangeArray[0] + ' комн.';
+        }
+    } else {
+        if (rangeArray.includes('0')) {
+            element.innerHTML = 'Студия, ';
+            if (rangeArray.length === 2) {
+                element.insertAdjacentHTML('beforeEnd', rangeArray[1] + ' комн.');
+            } else {
+                const min = rangeArray[1];
+                const max = rangeArray[rangeArray.length - 1];
+                element.insertAdjacentHTML('beforeEnd', min + '-' + max + ' комн.');
+            }
+        } else {
+            const min = rangeArray[0];
+            const max = rangeArray[rangeArray.length - 1];
+            element.innerHTML = min + '-' + max + ' комн.';
+        }
+    }
+};
+
+const changeParkingPlaces = (element) => {
+    parkingPlaces.forEach(el => {
+        el.classList.remove('selected');
+    });
+    element.classList.add('selected');
+};
+
 // Обработчики событий
 document.addEventListener('click', event => {
 
@@ -142,10 +234,26 @@ document.addEventListener('click', event => {
         menuSwitcher(createMenu);
     } else if (t === userButton || tp === userButton) {
         menuSwitcher(userMenu);
+    } else if (t === additionalFiltersButton || tp === additionalFiltersButton) {
+        closeAll();
+        modal.classList.remove('hidden');
+        additionalFilters.classList.remove('hidden');
     } else if (t === accountsButton) {
         menuSwitcher(accountsMenu);
     } else if (t === closeAccountsButton) {
         menuSwitcher(userMenu);
+    } else if (t === modal || tp === modalClose) {
+        modal.classList.add('hidden');
+    } else if (t.classList.contains('select_item')) {
+        changeParkingPlaces(t);
+    }
+
+    if (realEstateForm.textContent === 'Коммерческая недвижимость' || realEstateForm.textContent === 'Прочая') {
+        roomsForm.classList.add('hidden');
+        addressForm.style.gridColumnStart = 2;
+    } else {
+        roomsForm.classList.remove('hidden');
+        addressForm.style.gridColumnStart = 3;
     }
 });
 
@@ -158,6 +266,22 @@ mainContentTabs.forEach(el => {
 selects.forEach(el => {
     el.addEventListener('click', event => {
         selectOptions(el, event.target);
+    });
+});
+
+investLinks.forEach(el => {
+    el.addEventListener('click', () => {
+        closeAll();
+        modal.classList.remove('hidden');
+        modalErrorReport.classList.remove('hidden');
+    });
+});
+
+tiles.forEach(el => {
+    el.addEventListener('click', () => {
+        closeAll();
+        modal.classList.remove('hidden');
+        modalRentMethods.classList.remove('hidden');
     });
 });
 

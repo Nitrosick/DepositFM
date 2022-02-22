@@ -146,7 +146,7 @@
                     </button>
                 </nav>
 
-                <div class="main_content_tab_window" data-window="1">
+                <form action="#" class="main_content_tab_window" data-window="1">
                     <div class="custom_form custom_select" id="term_select">
                         <span class="custom_form_value">На любой срок</span>
                         <i class="fas fa-angle-down"></i>
@@ -167,61 +167,76 @@
                                 <div class="custom_checkbox_mark"></div>
                                 <img src="images/rent_icons/rent_icon_1.svg" alt="icon">
                                 <span>Аренда и оплата</span>
-                                <div class="custom_checkbox_layer" data-icon="1"></div>
+                                <div class="custom_checkbox_layer" data-id="1"></div>
                             </div>
                             <div class="custom_checkbox">
                                 <div class="custom_checkbox_mark"></div>
                                 <img src="images/rent_icons/rent_icon_2.svg" alt="icon">
                                 <span>С бонусами и штрафами</span>
-                                <div class="custom_checkbox_layer" data-icon="2"></div>
+                                <div class="custom_checkbox_layer" data-id="2"></div>
                             </div>
                             <div class="custom_checkbox">
                                 <div class="custom_checkbox_mark"></div>
                                 <img src="images/rent_icons/rent_icon_3.svg" alt="icon">
                                 <span>Аренда за помощь</span>
-                                <div class="custom_checkbox_layer" data-icon="3"></div>
+                                <div class="custom_checkbox_layer" data-id="3"></div>
                             </div>
                             <div class="custom_checkbox">
                                 <div class="custom_checkbox_mark"></div>
                                 <img src="images/rent_icons/rent_icon_4.svg" alt="icon">
                                 <span>Аренда с заработком</span>
-                                <div class="custom_checkbox_layer" data-icon="4"></div>
+                                <div class="custom_checkbox_layer" data-id="4"></div>
                             </div>
                             <div class="custom_checkbox">
                                 <div class="custom_checkbox_mark"></div>
                                 <img src="images/rent_icons/rent_icon_5.svg" alt="icon">
                                 <span>Аренда и обучение</span>
-                                <div class="custom_checkbox_layer" data-icon="5"></div>
+                                <div class="custom_checkbox_layer" data-id="5"></div>
                             </div>
                             <div class="custom_checkbox">
                                 <div class="custom_checkbox_mark"></div>
                                 <img src="images/rent_icons/rent_icon_6.svg" alt="icon">
                                 <span>Бесплатная аренда</span>
-                                <div class="custom_checkbox_layer" data-icon="6"></div>
+                                <div class="custom_checkbox_layer" data-id="6"></div>
                             </div>
                         </div>
                     </div>
 
-                    <select name="real_estate" id="real_estate">
-                        <option value="1">Жилая</option>
-                        <option value="2">Коммерческая</option>
-                        <option value="3">Для мероприятий</option>
-                        <option value="4">Прочая</option>
-                    </select>
+                    <div class="custom_form custom_select" id="real_estate">
+                        <span class="custom_form_value">Жилая недвижимость</span>
+                        <i class="fas fa-angle-down"></i>
 
-                    <div class="real_estate_price">
-                        <input type="number" id="price_from" placeholder="Цена от" min="0" max="999999999">
-                        <input type="number" id="price_up_to" placeholder="до" min="0" max="999999999">
+                        <div class="custom_form_options hidden">
+                            <option>Жилая недвижимость</option>
+                            <option>Коммерческая недвижимость</option>
+                            <option>Для мероприятий</option>
+                            <option>Прочая</option>
+                        </div>
+                    </div>
+
+                    <div class="double_input">
+                        <input class="double_input_left" type="number" placeholder="Цена от" min="0" max="999999999">
+                        <input class="double_input_right" type="number" placeholder="до" min="0" max="999999999">
                         <span>RUB</span>
                     </div>
 
-                    <select name="rooms" id="rooms">
-                        <option value="1">Комнат</option>
-                    </select>
+                    <div class="custom_form custom_range" id="rooms">
+                        <span class="custom_form_value">Комнат</span>
+                        <i class="fas fa-angle-down"></i>
 
-                    <div class="real_estate_area">
-                        <input type="number" id="area_from" placeholder="Площадь от" min="0">
-                        <input type="number" id="area_up_to" placeholder="до" min="0">
+                        <div class="custom_form_options hidden">
+                            <div class="custom_range_item" data-id="0">Студия</div>
+                            <div class="custom_range_item" data-id="1">1</div>
+                            <div class="custom_range_item" data-id="2">2</div>
+                            <div class="custom_range_item" data-id="3">3</div>
+                            <div class="custom_range_item" data-id="4">4</div>
+                            <div class="custom_range_item" data-id="5">5+</div>
+                        </div>
+                    </div>
+
+                    <div class="double_input">
+                        <input class="double_input_left" type="number" placeholder="Площадь от" min="0" max="999999999">
+                        <input class="double_input_right" type="number" placeholder="до" min="0" max="999999999">
                         <span>м²</span>
                     </div>
 
@@ -250,7 +265,7 @@
 
                         <button class="ads">1678 объявлений</button>
                     </div>
-                </div>
+                </form>
 
                 <div class="main_content_tab_window hidden" data-window="2">
                     Купить
@@ -274,41 +289,41 @@
             <h2>Арендуйте недвижимость по-новому на Dconto</h2>
 
             <div class="rent_methods_tiles">
-                <a href="#" class="rent_methods_tile">
+                <button href="#" class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_1.svg" alt="icon" width="60" height="60">
                     <h3>Аренда и оплата<i class="fas fa-angle-right"></i></h3>
                     <p>Классическая форма аренды. Стороны заключают контракт аренды, согласно которому арендатор платит арендодателю за объект недвижимости, предоставленный во временное пользование.</p>
-                </a>
+                </button>
 
-                <a href="#" class="rent_methods_tile">
+                <button href="#" class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_2.svg" alt="icon" width="60" height="60">
                     <h3>Аренда со скидкой<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды с уникальной системой мотивации сторон путем бонусов и штрафов. Бонусы начисляются арендатору за выполнение определенных пунктов контракта, а штрафы - за их несоблюдение.</p>
-                </a>
+                </button>
 
-                <a href="#" class="rent_methods_tile">
+                <button href="#" class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_3.svg" alt="icon" width="60" height="60">
                     <h3>Аренда за помощь<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды, при которой в качестве частичной или полной оплаты предполагается помощь. Тип помощи и условия указываются сторонами в объявлениях, а затем фиксируются в виртуальном договоре аренды.</p>
-                </a>
+                </button>
 
-                <a href="#" class="rent_methods_tile">
+                <button href="#" class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_4.svg" alt="icon" width="60" height="60">
                     <h3>Аренда с заработком<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды, при которой, помимо предоставленной во временное пользование недвижимости, арендодатель готов заплатить арендатору за помощь. Условия фиксируются в виртуальном договоре аренды.</p>
-                </a>
+                </button>
 
-                <a href="#" class="rent_methods_tile">
+                <button href="#" class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_5.svg" alt="icon" width="60" height="60">
                     <h3>Аренда с обучением<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды, при которой в качестве полной или частичной оплаты выступает обмен знаниями и навыками. В роли обучающего может выступать как арендатор, так и арендодатель.</p>
-                </a>
+                </button>
 
-                <a href="#" class="rent_methods_tile">
+                <button href="#" class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_6.svg" alt="icon" width="60" height="60">
                     <h3>Бесплатная аренда<i class="fas fa-angle-right"></i></h3>
                     <p>Форма бесплатной аренды, просто так, для общения! Предполагается обмен информацией, прогулки, спорт, совместное посещение достопримечательностей и то, что будет интересно обеим сторонам.</p>
-                </a>
+                </button>
             </div>
         </section>
 
@@ -317,41 +332,41 @@
                 <h2>Ваши уникальные возможности на Dconto</h2>
 
                 <div class="opportunities_content_tiles">
-                    <a href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icon_1.svg" alt="icon">
+                    <button href="#" class="opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_1.svg" alt="icon">
                         <h3>Информативные профили<i class="fas fa-angle-right"></i></h3>
                         <p>Персональный профиль - это мощный инструмент взаимодействия пользователей. Чем лучше заполнен ваш профиль, тем больше о вас узнают другие пользователи, тем охотнее они будут заключать с вами сделки!</p>
-                    </a>
+                    </button>
 
-                    <a href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icon_2.svg" alt="icon">
+                    <button href="#" class="opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_2.svg" alt="icon">
                         <h3>Виртуальные подписи<i class="fas fa-angle-right"></i></h3>
                         <p>Виртуальная подпись позволяет пользователю подписывать контракты дистанционно, используя компьютер, телефон или планшет. Виртуальная подпись Dconto обладает той же юридической силой, что и рукописная.</p>
-                    </a>
+                    </button>
 
-                    <a href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icon_3.svg" alt="icon">
+                    <button href="#" class="opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_3.svg" alt="icon">
                         <h3>Виртуальный контракт<i class="fas fa-angle-right"></i></h3>
                         <p>Виртуальный контракт содержит уникальную систему мотивации сторон, которая повышает прозрачность и надежность сделки. Несколько пользователей могут участвовать в одном виртуальном контракте.</p>
-                    </a>
+                    </button>
 
-                    <a href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icon_4.svg" alt="icon">
+                    <button href="#" class="opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_4.svg" alt="icon">
                         <h3>Виртуальный акт передачи<i class="fas fa-angle-right"></i></h3>
                         <p>Виртуальный акт передачи - это удобный инструмент, позволяющий быстро и легко зафиксировать все особенности арендуемой или сдаваемой в аренду недвижимости без необходимости личной встречи.</p>
-                    </a>
+                    </button>
 
-                    <a href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icon_5.svg" alt="icon">
+                    <button href="#" class="opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_5.svg" alt="icon">
                         <h3>Домовая книга<i class="fas fa-angle-right"></i></h3>
                         <p>Домовая книга - это инструмент для хранения всей информации о вашей недвижимости. Подробно заполненная домовая книга в разы увеличит интерес и доверие к вашему объекту, что выгодно отразится на его стоимости.</p>
-                    </a>
+                    </button>
 
-                    <a href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icon_6.svg" alt="icon">
+                    <button href="#" class="opportunities_content_tile">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_6.svg" alt="icon">
                         <h3>Аренда с продажей<i class="fas fa-angle-right"></i></h3>
                         <p>Еще не решили продавать свою недвижимость, которую сдаете в аренду, но готовы выслушать предложения о покупке? Отметьте в своем объявлении , что готовы рассмотреть варианты продажи, и потенциальные покупатели сами свяжутся с вами!</p>
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -363,41 +378,41 @@
                 <p>Dconto - это бесплатный сервис для всех его пользователей! Это также сложный в технической реализации и продвижении международный проект. Мы не откажемся от помощи  инвесторов, специалистов и волонтеров, разделяющих наше видение, чтобы у всех участников рынка недвижимости было больше возможностей, а их взаимодействие - безопасным, взаимовыгодным и максимально удобным.</p>
 
                 <div class="invest_content_links">
-                    <a href="#" class="invest_content_link">
+                    <button href="#" class="invest_content_link">
                         <div class="invest_link_icon_block">
-                            <img src="images/invest_icon_1.svg" alt="icon">
+                            <img src="images/invest_icons/invest_icon_1.svg" alt="icon">
                         </div>
                         <span>Поддержать финансово</span>
                         <div class="plug"></div>
                         <i class="fas fa-angle-right"></i>
-                    </a>
+                    </button>
 
-                    <a href="#" class="invest_content_link">
+                    <button href="#" class="invest_content_link">
                         <div class="invest_link_icon_block">
-                            <img src="images/invest_icon_2.svg" alt="icon">
+                            <img src="images/invest_icons/invest_icon_2.svg" alt="icon">
                         </div>
                         <span>Стать инвестором</span>
                         <div class="plug"></div>
                         <i class="fas fa-angle-right"></i>
-                    </a>
+                    </button>
 
-                    <a href="#" class="invest_content_link">
+                    <button href="#" class="invest_content_link">
                         <div class="invest_link_icon_block">
-                            <img src="images/invest_icon_3.svg" alt="icon">
+                            <img src="images/invest_icons/invest_icon_3.svg" alt="icon">
                         </div>
                         <span>Присоединиться к команде</span>
                         <div class="plug"></div>
                         <i class="fas fa-angle-right"></i>
-                    </a>
+                    </button>
 
-                    <a href="#" class="invest_content_link">
+                    <button href="#" class="invest_content_link">
                         <div class="invest_link_icon_block">
-                            <img src="images/invest_icon_4.svg" alt="icon">
+                            <img src="images/invest_icons/invest_icon_4.svg" alt="icon">
                         </div>
                         <span>Пригласить друзей</span>
                         <div class="plug"></div>
                         <i class="fas fa-angle-right"></i>
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -456,6 +471,131 @@
         </div>
     </footer>
 
+    <div class="modal_window hidden">
+        <div class="modal_window_content">
+            <button class="modal_window_close"><i class="fas fa-times"></i></button>
+            <form action="#" class="modal_window_additional_filters hidden">
+                <h3>Дополнительные фильтры</h3>
+                <div class="additional_filters_forms">
+                    <div class="additional_filters_form">
+                        <span class="additional_filters_form_name">Площадь</span>
+                        <div class="double_input">
+                            <input class="double_input_left" type="number" placeholder="от" min="0" max="999999999">
+                            <input class="double_input_right" type="number" placeholder="до" min="0" max="999999999">
+                            <span>м²</span>
+                        </div>
+                    </div>
+
+                    <div class="additional_filters_form">
+                        <span class="additional_filters_form_name">Площадь участка</span>
+                        <div class="double_input">
+                            <input class="double_input_left" type="number" placeholder="от" min="0" max="999999999">
+                            <input class="double_input_right" type="number" placeholder="до" min="0" max="999999999">
+                            <span>м²</span>
+                        </div>
+                    </div>
+
+                    <div class="additional_filters_form">
+                        <span class="additional_filters_form_name">Машиномест не менее</span>
+                        <div class="select">
+                            <button class="select_item selected">Не указано</button>
+                            <button class="select_item">1</button>
+                            <button class="select_item">2</button>
+                            <button class="select_item">3</button>
+                            <button class="select_item">4</button>
+                            <button class="select_item">5</button>
+                        </div>
+                    </div>
+
+                    <div class="additional_filters_form">
+                        <span class="additional_filters_form_name">Размеры лодки</span>
+                        <div class="double_input">
+                            <input class="double_input_left" type="number" placeholder="Длина до" min="0" max="999999999">
+                            <input class="double_input_right" type="number" placeholder="Ширина до" min="0" max="999999999">
+                            <span>м</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="additional_filters_control">
+                    <button class="reset">Сбросить</button>
+                    <button type="submit" class="accept">Применить</button>
+                </div>
+            </form>
+
+            <div class="modal_window_rent_methods hidden">
+                <div class="rent_methods_title">
+                    <img src="images/rent_icons/rent_icon_1.svg" alt="icon" width="40" height="40">
+                    <h3>Аренда и оплата</h3>
+                </div>
+
+                <div class="rent_methods_content">
+                    <div class="rent_methods_content_chain_link">
+                        <div class="chain_link_number">1</div>
+                        <img src="images/rent_icons/rent_icon_7.svg" alt="icon" class="chain_link_icon">
+                        <p>Классическая аренда недвижимости. Арендодатель и арендатор находят друг друга на платформе Dconto и заключают договор аренды. Арендодатель получает оплату по договору. Арендатор получает недвижимость во временное пользование. Dconto предоставляет возможность долгосрочной и краткосрочной аренды.</p>
+                    </div>
+                    <div class="chain_link_connector"></div>
+                    <div class="rent_methods_content_chain_link">
+                        <div class="chain_link_number">2</div>
+                        <img src="images/rent_icons/rent_icon_8.svg" alt="icon" class="chain_link_icon">
+                        <p>Арендодатель и Арендатор договариваются о величине залогового платежа (депозита) со стороны арендатора при заключении договора аренды. Данный депозит арендодатель может использовать как гарантию на случай повреждений и пропущенных платежей арендатором. Депозит может составлять сумму аренды за 1 - 6 месяцев.</p>
+                    </div>
+                    <div class="chain_link_connector"></div>
+                    <div class="rent_methods_content_chain_link">
+                        <div class="chain_link_number">3</div>
+                        <img src="images/rent_icons/rent_icon_9.svg" alt="icon" class="chain_link_icon">
+                        <p>Стороны экономят время на выяснение отношений, так как в случае возникновения конфликтной ситуации все взыскания автоматически рассчитываются на платформе Dconto строго согласно подписанному договору аренды. Гарантией является сумма депозита.</p>
+                    </div>
+                </div>
+            </div>
+
+            <form action="#" class="modal_window_error_report hidden">
+                <h3>Сообщить об ошибке</h3>
+                <p>Заметили ошибку на Dconto.com? Техподдержка готова помочь решить любую возникшую трудность.</p>
+                <div class="error_report_forms">
+                    <select name="error_category" id="error_category">
+                        <option value="0">Категория ошибки *</option>
+                        <option value="1">Грамматическая ошибка</option>
+                        <option value="2">Логическая ошибка</option>
+                        <option value="3">Графическая ошибка</option>
+                    </select>
+
+                    <select name="site_section" id="site_section">
+                        <option value="0">Раздел сайта *</option>
+                        <option value="1">Поиск</option>
+                        <option value="2">Объявления</option>
+                        <option value="3">Недвижимость</option>
+                        <option value="4">Домовая книга</option>
+                        <option value="5">Профиль</option>
+                        <option value="6">Профиль компании</option>
+                        <option value="7">Настройки</option>
+                        <option value="8">Чат</option>
+                        <option value="9">Избранное</option>
+                    </select>
+
+                    <textarea name="error_desc" id="error_desc" cols="30" rows="10" placeholder="Подробное описание ошибки *"></textarea>
+                    <input type="text" placeholder="Ваше имя">
+                    <input type="email" placeholder="Ваш Email">
+
+                    <div class="input_file">
+                        <input name="error_file" type="file" id="error_file" class="input_file_form">
+                        <label for="error_file" class="input_file_button">
+                           <span class="input_file_icon_wrapper"><img class="input_file_icon" src="images/clip.svg" alt="icon" width="18"></span>
+                           <span class="input_file_button_text">Выберите файлы</span>
+                           <span class="input_file_button_text_1">&nbsp;или перетащите их сюда</span>
+                        </label>
+                     </div>
+
+                    <div class="error_report_forms_control">
+                        <button class="errors">Ошибки</button>
+                        <div class="plug"></div>
+                        <button class="cancel">Отмена</button>
+                        <button type="submit" class="send">Отправить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <script src="scripts/script.js"></script>
 </body>
 </html>
