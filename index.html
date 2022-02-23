@@ -5,6 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="keywords" content="недвижимость, рынок недвижимости, аренда недвижимости, аренда помещение, жилье">
+    <meta itemprop="keywords" name="keywords" content="недвижимость, рынок недвижимости, аренда недвижимости, аренда помещение, жилье">
+	<meta name="description" content="Dconto - это больше, чем просто аренда и продажа недвижимости!">
+    <meta itemprop="description" name="description" content="Dconto - это больше, чем просто аренда и продажа недвижимости!">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dconto">
+    <meta property="og:locale" content="ru">
+    <meta name="twitter:creator" content="Creator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Dconto | Поиск и аренда недвижимости">
+    <meta property="og:description" content="Dconto - это больше, чем просто аренда и продажа недвижимости!">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://Dconto.com/">
+	<meta property="og:image" content="https://Dconto.com/images/logo.svg">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,14 +31,41 @@
     <link rel="stylesheet" href="styles/style.css">
 
     <title>Dconto</title>
+    <title itemprop="headline">Dconto | Поиск и аренда недвижимости</title>
 </head>
 <body>
     <header>
         <div class="header wrapper">
+            <button class="header_burger">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="header_overlay_menu hidden" id="burger_bar">
+                <div class="header_burger_bar">
+                    <ul>
+                        <li><a href="#"><img src="images/triple_color/rent_bl.svg" alt="icon" loading="lazy" width="22" height="22">Снять недвижимость</a></li>
+                        <li><a href="#"><img src="images/triple_color/buy_bl.svg" alt="icon" loading="lazy" width="20" height="20">Купить недвижимость</a></li>
+                        <li><a href="#"><img src="images/triple_color/tenants_bl.svg" alt="icon" loading="lazy" width="17" height="20">Найти арендаторов</a></li>
+                        <li><a href="#"><img src="images/triple_color/co_tenants_bl.svg" alt="icon" loading="lazy" width="22" height="20">Найти соарендаторов</a></li>
+                        <li><a href="#"><img src="images/triple_color/services_bl.svg" alt="icon" loading="lazy" width="20" height="22">Найти услуги</a></li>
+                        <li class="splitter"></li>
+                        <li class="header_burger_bar_sublink"><a href="#">О сервисе</a></li>
+                        <li class="header_burger_bar_sublink"><a href="#">Условия использования</a></li>
+                        <li class="header_burger_bar_sublink"><a href="#">Политика обработки данных</a></li>
+                        <li class="header_burger_bar_sublink"><a href="#">Политика в отношении cookies</a></li>
+                        <li class="header_burger_bar_sublink"><a href="#">Сообщить об ошибке</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="header_overlay_menu hidden" id="user_menu_overlay"></div>
+
             <a href="#" class="site_logo">
-                <img src="images/logo.svg" alt="logo">
-                <img class="site_logo_text" src="images/logo_text.svg" alt="logo_text">
+                <img src="images/logo.svg" alt="logo" loading="lazy" width="36" height="36">
+                <img class="site_logo_text" src="images/logo_text.svg" alt="logo_text" loading="lazy" width="85" height="16">
             </a>
+
+            <div class="plug"></div>
 
             <button class="header_geoposition">
                 <i class="fas fa-location-arrow"></i>
@@ -29,7 +74,7 @@
 
             <div class="header_currency">
                 <div class="header_currency_button">
-                    <img src="images/flag.svg" alt="flag">
+                    <img src="images/flag.svg" alt="flag" loading="lazy" width="20" height="15">
                     <span>RUB</span>
                     <i class="fas fa-angle-down"></i>
                 </div>
@@ -53,17 +98,17 @@
 
             <div class="header_buttons">
                 <button class="header_notification">
-                    <img src="images/bell.svg" alt="bell">
+                    <img src="images/bell.svg" alt="bell" loading="lazy" width="15" height="18">
                     <div class="header_notification_mark">2</div>
                 </button>
 
                 <button class="header_comments">
-                    <img src="images/comments.svg" alt="comments">
+                    <img src="images/comments.svg" alt="comments" loading="lazy" width="28" height="20">
                     <div class="header_comments_mark">2</div>
                 </button>
 
                 <button class="header_like">
-                    <img src="images/like.svg" alt="like">
+                    <img src="images/like.svg" alt="like" loading="lazy" width="18" height="16">
                 </button>
             </div>
 
@@ -83,24 +128,25 @@
 
             <div class="header_user">
                 <div class="header_user_button">
-                    <img src="images/user.svg" alt="user">
+                    <img src="images/user.svg" alt="user" loading="lazy" width="35" height="35">
                     <span>Константин С.</span>
                     <i class="fas fa-angle-down"></i>
+                    <div class="header_comments_mark">2</div>
                 </div>
 
                 <div class="header_user_menu hidden">
                     <ul>
-                        <li><a href="#"><img src="images/profile/profile.svg" alt="icon">Мой профиль</a></li>
-                        <li><button class="accounts_open"><img src="images/profile/accounts.svg" alt="icon">Аккаунты (3)<div class="plug"></div> <i class="fas fa-angle-right"></i></button></li>
+                        <li><a href="#"><img src="images/profile/profile.svg" alt="icon" loading="lazy" width="18" height="18">Мой профиль</a></li>
+                        <li><button class="accounts_open"><img src="images/profile/accounts.svg" alt="icon" loading="lazy" width="17" height="17">Аккаунты (3)<div class="plug"></div> <i class="fas fa-angle-right"></i></button></li>
                         <li class="splitter"></li>
-                        <li><a href="#"><img src="images/profile/ads.svg" alt="icon">Мои объявления</a></li>
-                        <li><a href="#"><img src="images/profile/real_estate.svg" alt="icon">Моя недвижимость</a></li>
-                        <li><a href="#"><img src="images/profile/books.svg" alt="icon">Домовые книги</a></li>
-                        <li><a href="#"><img src="images/profile/contracts.svg" alt="icon">Мои контракты</a></li>
+                        <li><a href="#"><img src="images/profile/ads.svg" alt="icon" loading="lazy" width="18" height="18">Мои объявления</a></li>
+                        <li><a href="#"><img src="images/profile/real_estate.svg" alt="icon" loading="lazy" width="19" height="19">Моя недвижимость</a></li>
+                        <li><a href="#"><img src="images/profile/books.svg" alt="icon" loading="lazy" width="19" height="14">Домовые книги</a></li>
+                        <li><a href="#"><img src="images/profile/contracts.svg" alt="icon" loading="lazy" width="15" height="17">Мои контракты</a></li>
                         <li class="splitter"></li>
-                        <li><a href="#"><img src="images/profile/invite.svg" alt="icon">Пригласить пользователя</a></li>
-                        <li><a href="#"><img src="images/profile/settings.svg" alt="icon">Настройки</a></li>
-                        <li><a href="#"><img src="images/profile/exit.svg" alt="icon">Выйти</a></li>
+                        <li><a href="#"><img src="images/profile/invite.svg" alt="icon" loading="lazy" width="20" height="20">Пригласить пользователя</a></li>
+                        <li><a href="#"><img src="images/profile/settings.svg" alt="icon" loading="lazy" width="18" height="18">Настройки</a></li>
+                        <li><a href="#"><img src="images/profile/exit.svg" alt="icon" loading="lazy" width="16" height="16">Выйти</a></li>
                     </ul>
                 </div>
 
@@ -108,11 +154,11 @@
                     <ul>
                         <li><button class="accounts_back"><i class="fas fa-angle-left"></i>Аккаунты</button></li>
                         <li class="splitter"></li>
-                        <li><a href="#"><img src="images/profile/profile.svg" alt="icon">Константин С.</a></li>
-                        <li><a href="#"><img src="images/profile/companies.svg" alt="icon">ООО "ИнтерСпецСтрой"</a></li>
-                        <li><a href="#"><img src="images/profile/companies.svg" alt="icon">АО "Центр-Риэлт"</a></li>
+                        <li><a href="#"><img src="images/profile/profile.svg" alt="icon" loading="lazy" width="18" height="18">Константин С.</a></li>
+                        <li><a href="#" target="_blank"><img src="images/profile/companies.svg" alt="icon" loading="lazy" width="18" height="18">ООО "ИнтерСпецСтрой"</a></li>
+                        <li><a href="#" target="_blank"><img src="images/profile/companies.svg" alt="icon" loading="lazy" width="18" height="18">АО "Центр-Риэлт"</a></li>
                         <li class="splitter"></li>
-                        <li><a href="#"><img src="images/profile/plus.svg" alt="icon">Создать аккаунт компании</a></li>
+                        <li><a href="#"><img src="images/profile/plus.svg" alt="icon" loading="lazy" width="18" height="18">Создать аккаунт компании</a></li>
                     </ul>
                 </div>
             </div>
@@ -125,23 +171,23 @@
 
                 <nav class="main_content_tabs">
                     <button class="main_content_tab main_content_active_tab" data-tab="1">
-                        <img src="images/double_color/rent_w.svg" alt="icon">
+                        <img src="images/triple_color/rent_w.svg" alt="icon" loading="lazy" width="22" height="22">
                         <span>Снять</span>
                     </button>
                     <button class="main_content_tab" data-tab="2">
-                        <img src="images/double_color/buy_b.svg" alt="icon">
+                        <img src="images/triple_color/buy_b.svg" alt="icon" loading="lazy" width="21" height="20">
                         <span>Купить</span>
                     </button>
                     <button class="main_content_tab" data-tab="3">
-                        <img src="images/double_color/tenants_b.svg" alt="icon">
+                        <img src="images/triple_color/tenants_b.svg" alt="icon" loading="lazy" width="17" height="20">
                         <span>Арендаторы</span>
                     </button>
                     <button class="main_content_tab" data-tab="4">
-                        <img src="images/double_color/co_tenants_b.svg" alt="icon">
+                        <img src="images/triple_color/co_tenants_b.svg" alt="icon" loading="lazy" width="30" height="20">
                         <span>Соарендаторы</span>
                     </button>
                     <button class="main_content_tab" data-tab="5">
-                        <img src="images/double_color/services_b.svg" alt="icon">
+                        <img src="images/triple_color/services_b.svg" alt="icon" loading="lazy" width="20" height="22">
                         <span>Услуги</span>
                     </button>
                 </nav>
@@ -165,37 +211,37 @@
                         <div class="custom_form_options hidden">
                             <div class="custom_checkbox">
                                 <div class="custom_checkbox_mark"></div>
-                                <img src="images/rent_icons/rent_icon_1.svg" alt="icon">
+                                <img src="images/rent_icons/rent_icon_1.svg" alt="icon" loading="lazy" width="20" height="20">
                                 <span>Аренда и оплата</span>
                                 <div class="custom_checkbox_layer" data-id="1"></div>
                             </div>
                             <div class="custom_checkbox">
                                 <div class="custom_checkbox_mark"></div>
-                                <img src="images/rent_icons/rent_icon_2.svg" alt="icon">
+                                <img src="images/rent_icons/rent_icon_2.svg" alt="icon" loading="lazy" width="20" height="20">
                                 <span>С бонусами и штрафами</span>
                                 <div class="custom_checkbox_layer" data-id="2"></div>
                             </div>
                             <div class="custom_checkbox">
                                 <div class="custom_checkbox_mark"></div>
-                                <img src="images/rent_icons/rent_icon_3.svg" alt="icon">
+                                <img src="images/rent_icons/rent_icon_3.svg" alt="icon" loading="lazy" width="20" height="20">
                                 <span>Аренда за помощь</span>
                                 <div class="custom_checkbox_layer" data-id="3"></div>
                             </div>
                             <div class="custom_checkbox">
                                 <div class="custom_checkbox_mark"></div>
-                                <img src="images/rent_icons/rent_icon_4.svg" alt="icon">
+                                <img src="images/rent_icons/rent_icon_4.svg" alt="icon" loading="lazy" width="20" height="20">
                                 <span>Аренда с заработком</span>
                                 <div class="custom_checkbox_layer" data-id="4"></div>
                             </div>
                             <div class="custom_checkbox">
                                 <div class="custom_checkbox_mark"></div>
-                                <img src="images/rent_icons/rent_icon_5.svg" alt="icon">
+                                <img src="images/rent_icons/rent_icon_5.svg" alt="icon" loading="lazy" width="20" height="20">
                                 <span>Аренда и обучение</span>
                                 <div class="custom_checkbox_layer" data-id="5"></div>
                             </div>
                             <div class="custom_checkbox">
                                 <div class="custom_checkbox_mark"></div>
-                                <img src="images/rent_icons/rent_icon_6.svg" alt="icon">
+                                <img src="images/rent_icons/rent_icon_6.svg" alt="icon" loading="lazy" width="20" height="20">
                                 <span>Бесплатная аренда</span>
                                 <div class="custom_checkbox_layer" data-id="6"></div>
                             </div>
@@ -234,14 +280,14 @@
                         </div>
                     </div>
 
-                    <div class="double_input">
+                    <div class="double_input" id="area_range">
                         <input class="double_input_left" type="number" placeholder="Площадь от" min="0" max="999999999">
                         <input class="double_input_right" type="number" placeholder="до" min="0" max="999999999">
                         <span>м²</span>
                     </div>
 
                     <div class="real_estate_address">
-                        <img src="images/search.svg" alt="search" width="14" height="14">
+                        <img src="images/search.svg" alt="search" loading="lazy" width="14" height="14">
                         <input type="text" id="address" placeholder="Район, адрес, ориентир">
                     </div>
 
@@ -290,37 +336,37 @@
 
             <div class="rent_methods_tiles">
                 <button href="#" class="rent_methods_tile">
-                    <img src="images/rent_icons/rent_icon_1.svg" alt="icon" width="60" height="60">
+                    <img src="images/rent_icons/rent_icon_1.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Аренда и оплата<i class="fas fa-angle-right"></i></h3>
                     <p>Классическая форма аренды. Стороны заключают контракт аренды, согласно которому арендатор платит арендодателю за объект недвижимости, предоставленный во временное пользование.</p>
                 </button>
 
                 <button href="#" class="rent_methods_tile">
-                    <img src="images/rent_icons/rent_icon_2.svg" alt="icon" width="60" height="60">
+                    <img src="images/rent_icons/rent_icon_2.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Аренда со скидкой<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды с уникальной системой мотивации сторон путем бонусов и штрафов. Бонусы начисляются арендатору за выполнение определенных пунктов контракта, а штрафы - за их несоблюдение.</p>
                 </button>
 
                 <button href="#" class="rent_methods_tile">
-                    <img src="images/rent_icons/rent_icon_3.svg" alt="icon" width="60" height="60">
+                    <img src="images/rent_icons/rent_icon_3.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Аренда за помощь<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды, при которой в качестве частичной или полной оплаты предполагается помощь. Тип помощи и условия указываются сторонами в объявлениях, а затем фиксируются в виртуальном договоре аренды.</p>
                 </button>
 
                 <button href="#" class="rent_methods_tile">
-                    <img src="images/rent_icons/rent_icon_4.svg" alt="icon" width="60" height="60">
+                    <img src="images/rent_icons/rent_icon_4.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Аренда с заработком<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды, при которой, помимо предоставленной во временное пользование недвижимости, арендодатель готов заплатить арендатору за помощь. Условия фиксируются в виртуальном договоре аренды.</p>
                 </button>
 
                 <button href="#" class="rent_methods_tile">
-                    <img src="images/rent_icons/rent_icon_5.svg" alt="icon" width="60" height="60">
+                    <img src="images/rent_icons/rent_icon_5.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Аренда с обучением<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды, при которой в качестве полной или частичной оплаты выступает обмен знаниями и навыками. В роли обучающего может выступать как арендатор, так и арендодатель.</p>
                 </button>
 
                 <button href="#" class="rent_methods_tile">
-                    <img src="images/rent_icons/rent_icon_6.svg" alt="icon" width="60" height="60">
+                    <img src="images/rent_icons/rent_icon_6.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Бесплатная аренда<i class="fas fa-angle-right"></i></h3>
                     <p>Форма бесплатной аренды, просто так, для общения! Предполагается обмен информацией, прогулки, спорт, совместное посещение достопримечательностей и то, что будет интересно обеим сторонам.</p>
                 </button>
@@ -333,37 +379,37 @@
 
                 <div class="opportunities_content_tiles">
                     <button href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_1.svg" alt="icon">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_1.svg" alt="icon" loading="lazy" width="70" height="61">
                         <h3>Информативные профили<i class="fas fa-angle-right"></i></h3>
                         <p>Персональный профиль - это мощный инструмент взаимодействия пользователей. Чем лучше заполнен ваш профиль, тем больше о вас узнают другие пользователи, тем охотнее они будут заключать с вами сделки!</p>
                     </button>
 
                     <button href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_2.svg" alt="icon">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_2.svg" alt="icon" loading="lazy" width="70" height="51">
                         <h3>Виртуальные подписи<i class="fas fa-angle-right"></i></h3>
                         <p>Виртуальная подпись позволяет пользователю подписывать контракты дистанционно, используя компьютер, телефон или планшет. Виртуальная подпись Dconto обладает той же юридической силой, что и рукописная.</p>
                     </button>
 
                     <button href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_3.svg" alt="icon">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_3.svg" alt="icon" loading="lazy" width="60" height="60">
                         <h3>Виртуальный контракт<i class="fas fa-angle-right"></i></h3>
                         <p>Виртуальный контракт содержит уникальную систему мотивации сторон, которая повышает прозрачность и надежность сделки. Несколько пользователей могут участвовать в одном виртуальном контракте.</p>
                     </button>
 
                     <button href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_4.svg" alt="icon">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_4.svg" alt="icon" loading="lazy" width="75" height="63">
                         <h3>Виртуальный акт передачи<i class="fas fa-angle-right"></i></h3>
                         <p>Виртуальный акт передачи - это удобный инструмент, позволяющий быстро и легко зафиксировать все особенности арендуемой или сдаваемой в аренду недвижимости без необходимости личной встречи.</p>
                     </button>
 
                     <button href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_5.svg" alt="icon">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_5.svg" alt="icon" loading="lazy" width="60" height="60">
                         <h3>Домовая книга<i class="fas fa-angle-right"></i></h3>
                         <p>Домовая книга - это инструмент для хранения всей информации о вашей недвижимости. Подробно заполненная домовая книга в разы увеличит интерес и доверие к вашему объекту, что выгодно отразится на его стоимости.</p>
                     </button>
 
                     <button href="#" class="opportunities_content_tile">
-                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_6.svg" alt="icon">
+                        <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_6.svg" alt="icon" loading="lazy" width="60" height="60">
                         <h3>Аренда с продажей<i class="fas fa-angle-right"></i></h3>
                         <p>Еще не решили продавать свою недвижимость, которую сдаете в аренду, но готовы выслушать предложения о покупке? Отметьте в своем объявлении , что готовы рассмотреть варианты продажи, и потенциальные покупатели сами свяжутся с вами!</p>
                     </button>
@@ -380,7 +426,7 @@
                 <div class="invest_content_links">
                     <button href="#" class="invest_content_link">
                         <div class="invest_link_icon_block">
-                            <img src="images/invest_icons/invest_icon_1.svg" alt="icon">
+                            <img src="images/invest_icons/invest_icon_1.svg" alt="icon" loading="lazy" width="31" height="32">
                         </div>
                         <span>Поддержать финансово</span>
                         <div class="plug"></div>
@@ -389,7 +435,7 @@
 
                     <button href="#" class="invest_content_link">
                         <div class="invest_link_icon_block">
-                            <img src="images/invest_icons/invest_icon_2.svg" alt="icon">
+                            <img src="images/invest_icons/invest_icon_2.svg" alt="icon" loading="lazy" width="30" height="30">
                         </div>
                         <span>Стать инвестором</span>
                         <div class="plug"></div>
@@ -398,7 +444,7 @@
 
                     <button href="#" class="invest_content_link">
                         <div class="invest_link_icon_block">
-                            <img src="images/invest_icons/invest_icon_3.svg" alt="icon">
+                            <img src="images/invest_icons/invest_icon_3.svg" alt="icon" loading="lazy" width="34" height="32">
                         </div>
                         <span>Присоединиться к команде</span>
                         <div class="plug"></div>
@@ -407,7 +453,7 @@
 
                     <button href="#" class="invest_content_link">
                         <div class="invest_link_icon_block">
-                            <img src="images/invest_icons/invest_icon_4.svg" alt="icon">
+                            <img src="images/invest_icons/invest_icon_4.svg" alt="icon" loading="lazy" width="33" height="32">
                         </div>
                         <span>Пригласить друзей</span>
                         <div class="plug"></div>
@@ -423,10 +469,10 @@
 
                 <div class="partners_content_logos">
                     <div class="partner_logo_block" style="background-color: #ce483c">
-                        <img src="images/innovation_norway.png" alt="partner_logo">
+                        <img src="images/innovation_norway.png" alt="partner_logo" loading="lazy" width="203" height="80">
                     </div>
                     <div class="partner_logo_block" style="background-color: #bfdf14">
-                        <img src="images/skolkovo.png" alt="partner_logo">
+                        <img src="images/skolkovo.png" alt="partner_logo" loading="lazy" width="162" height="125">
                     </div>
                 </div>
             </div>
@@ -436,8 +482,8 @@
         <div class="footer wrapper">
             <div class="footer_block">
                 <a href="#" class="site_logo">
-                    <img src="images/logo.svg" alt="logo">
-                    <img class="site_logo_text" src="images/logo_text.svg" alt="logo_text">
+                    <img src="images/logo.svg" alt="logo" loading="lazy" width="36" height="36">
+                    <img class="site_logo_text" src="images/logo_text.svg" alt="logo_text" loading="lazy" width="85" height="16">
                 </a>
                 <span class="copyright">© 2022 Deposit FM AS</span>
             </div>
@@ -524,26 +570,26 @@
 
             <div class="modal_window_rent_methods hidden">
                 <div class="rent_methods_title">
-                    <img src="images/rent_icons/rent_icon_1.svg" alt="icon" width="40" height="40">
+                    <img src="images/rent_icons/rent_icon_1.svg" alt="icon" loading="lazy" width="40" height="40">
                     <h3>Аренда и оплата</h3>
                 </div>
 
                 <div class="rent_methods_content">
                     <div class="rent_methods_content_chain_link">
                         <div class="chain_link_number">1</div>
-                        <img src="images/rent_icons/rent_icon_7.svg" alt="icon" class="chain_link_icon">
+                        <img src="images/rent_icons/rent_icon_7.svg" alt="icon" class="chain_link_icon" loading="lazy" width="49" height="30">
                         <p>Классическая аренда недвижимости. Арендодатель и арендатор находят друг друга на платформе Dconto и заключают договор аренды. Арендодатель получает оплату по договору. Арендатор получает недвижимость во временное пользование. Dconto предоставляет возможность долгосрочной и краткосрочной аренды.</p>
                     </div>
                     <div class="chain_link_connector"></div>
                     <div class="rent_methods_content_chain_link">
                         <div class="chain_link_number">2</div>
-                        <img src="images/rent_icons/rent_icon_8.svg" alt="icon" class="chain_link_icon">
+                        <img src="images/rent_icons/rent_icon_8.svg" alt="icon" class="chain_link_icon" loading="lazy" width="49" height="53">
                         <p>Арендодатель и Арендатор договариваются о величине залогового платежа (депозита) со стороны арендатора при заключении договора аренды. Данный депозит арендодатель может использовать как гарантию на случай повреждений и пропущенных платежей арендатором. Депозит может составлять сумму аренды за 1 - 6 месяцев.</p>
                     </div>
                     <div class="chain_link_connector"></div>
                     <div class="rent_methods_content_chain_link">
                         <div class="chain_link_number">3</div>
-                        <img src="images/rent_icons/rent_icon_9.svg" alt="icon" class="chain_link_icon">
+                        <img src="images/rent_icons/rent_icon_9.svg" alt="icon" class="chain_link_icon" loading="lazy" width="53" height="53">
                         <p>Стороны экономят время на выяснение отношений, так как в случае возникновения конфликтной ситуации все взыскания автоматически рассчитываются на платформе Dconto строго согласно подписанному договору аренды. Гарантией является сумма депозита.</p>
                     </div>
                 </div>
@@ -580,7 +626,7 @@
                     <div class="input_file">
                         <input name="error_file" type="file" id="error_file" class="input_file_form">
                         <label for="error_file" class="input_file_button">
-                           <span class="input_file_icon_wrapper"><img class="input_file_icon" src="images/clip.svg" alt="icon" width="18"></span>
+                           <span class="input_file_icon_wrapper"><img class="input_file_icon" src="images/clip.svg" alt="icon" loading="lazy" width="18" height="20"></span>
                            <span class="input_file_button_text">Выберите файлы</span>
                            <span class="input_file_button_text_1">&nbsp;или перетащите их сюда</span>
                         </label>

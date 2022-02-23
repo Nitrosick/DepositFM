@@ -20,6 +20,11 @@ button {
     border: none;
     color: @text-color;
     cursor: pointer;
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
 }
 
 select,
@@ -89,6 +94,7 @@ input[type="number"]:focus {
 }
 
 .custom_form {
+    box-sizing: border-box;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -277,6 +283,72 @@ header {
     height: 70px;
     font-size: 14px;
 
+    .plug {
+        display: none;
+    }
+
+    .splitter {
+        padding: 0;
+        margin: 8px 0;
+        height: 1px;
+        background-color: @light-grey-color;
+    }
+
+    &_burger {
+        display: none;
+        height: 100%;
+        width: 40px;
+        text-align: center;
+        padding-top: 4px;
+        border-bottom: 4px solid transparent;
+        margin-right: 17px;
+
+        &:hover {
+            border-bottom: 4px solid @blue-color;
+        }
+    }
+
+    &_overlay_menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(79, 116, 127, 0.6);
+        z-index: 5;
+    }
+
+    &_burger_bar {
+        max-width: 250px;
+        height: 100%;
+        background-color: white;
+        border-top: 1px solid @light-grey-color;
+        padding-top: 10px;
+
+        a {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            line-height: 40px;
+            width: 100%;
+            padding: 0 15px;
+            font-size: 14px;
+
+            img {
+                margin-right: 10px;
+            }
+
+            &:hover {
+                background-color: @light-blue-color;
+            }
+        }
+
+        &_sublink a {
+            font-size: 13px;
+        }
+    }
+
     &_geoposition {
         height: 100%;
         padding: 4px 10px 0 10px;
@@ -345,6 +417,10 @@ header {
             border-radius: 0 0 4px 4px;
             box-shadow: 0 2px 7px -3px black;
         }
+
+        .header_comments_mark {
+            display: none;
+        }
     }
 
     &_currency_menu {
@@ -389,13 +465,7 @@ header {
         right: 0;
         left: auto;
         min-width: 240px;
-
-        .splitter {
-            padding: 0;
-            margin: 8px 0;
-            height: 1px;
-            background-color: @light-grey-color;
-        }
+        z-index: 6;
 
         a,
         button {
@@ -461,6 +531,7 @@ main {
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.65);
         text-align: center;
         margin: 0 0 47px 0;
+        font-size: 36px;
     }
 
     h2 {
@@ -495,7 +566,7 @@ main {
 .main {
     box-sizing: border-box;
     min-height: 500px;
-    background-image: url(../images/main_background.jpg);
+    background-image: url(../images/main_background.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% auto;
@@ -564,6 +635,7 @@ main {
                     width: 100%;
                     height: 100%;
                     padding-left: 45px;
+                    height: 40px;
                 }
 
                 img {
@@ -723,7 +795,7 @@ main {
 .invest {
     box-sizing: border-box;
     min-height: 420px;
-    background-image: url(../images/main_background.jpg);
+    background-image: url(../images/footer_background.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% auto;
@@ -1133,4 +1205,408 @@ main {
             }
         }
     }
+}
+
+@media screen and (max-width: 1220px) {
+    .site_logo {
+        margin-right: 0;
+    }
+
+    .main {
+        background-size: auto 100%;
+    }
+
+    .header {
+        &_buttons {
+            margin-left: 0;
+        }
+    }
+
+    .rent_methods {
+        &_tiles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            padding-bottom: 50px;
+        }
+
+        &_tile {
+            width: auto;
+            height: auto;
+            margin: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .invest {
+        background-size: auto 100%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    select,
+    input,
+    textarea {
+        font-size: 13px;
+    }
+
+    .double_input {
+        font-size: 13px;
+
+        span {
+            font-size: 13px;
+        }
+    }
+
+    .custom_form {
+        font-size: 13px;
+
+        &_options {
+            width: auto;
+        }
+    }
+
+    .header {
+        .plug,
+        &_burger,
+        &_overlay_menu {
+            display: block;
+        }
+
+        &_create,
+        &_user {
+            &_button {
+                .fas,
+                span {
+                    display: none;
+                }
+
+                &_icon,
+                img {
+                    margin: 0;
+                }
+
+                .header_comments_mark {
+                    display: block;
+                }
+            }
+        }
+
+        &_user_menu,
+        &_user_accounts {
+            position: fixed;
+            top: 70px;
+            right: 0;
+            max-width: 250px;
+            height: 100%;
+        }
+
+        &_notification {
+            display: none;
+        }
+    }
+
+    main {
+        h1, h2 {
+            font-size: 28px;
+        }
+    }
+
+    .main {
+        &_content {
+            &_tab {
+                width: auto;
+                padding: 0 30px;
+                font-size: 13px;
+
+                img {
+                    display: none;
+                }
+            }
+
+            &_tab_window {
+                grid-template-columns: repeat(3, 1fr);
+
+                #area_range {
+                    display: none;
+                }
+
+                .real_estate_address {
+                    grid-column-start: auto;
+                    grid-column-end: auto;
+                }
+
+                &_filters {
+                    grid-column-end: 4;
+                }
+            }
+        }
+    }
+
+    .rent_methods {
+        &_tiles {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        &_tile {
+            h3 {
+                margin: 15px 0 7px 0;
+                font-size: 16px;
+            }
+
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .opportunities {
+        &_content {
+            &_tile {
+                padding: 20px;
+
+                h3 {
+                    font-size: 16px;
+                }
+
+                p {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .invest {
+        &_content {
+            padding: 40px 20px;
+
+            h2 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            &_links {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+            }
+        }
+    }
+
+    .footer {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        font-size: 12px;
+
+        &_block:nth-child(3),
+        &_block:nth-child(4) {
+            grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+
+        &_block:nth-child(4) {
+            grid-column-start: 3;
+            grid-column-end: 4;
+        }
+
+        .copyright {
+            font-size: 10px;
+        }
+    }
+
+    .modal_window {
+        padding: 20px;
+
+        &_content {
+            box-sizing: border-box;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .header {
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+        // height: 70px;
+        // font-size: 14px;
+
+        &_burger {
+            // height: 100%;
+            // padding: 4px 13px 0 13px;
+            // border-bottom: 4px solid transparent;
+            // margin-right: 17px;
+        }
+
+        &_geoposition {
+            // height: 100%;
+            // padding: 4px 10px 0 10px;
+            // border-bottom: 4px solid transparent;
+
+            .fas {
+                // font-size: 12px;
+                // margin-right: 13px;
+            }
+        }
+
+        &_currency,
+        &_create,
+        &_user {
+            // position: relative;
+            // padding: 4px 10px 0 10px;
+            // border-bottom: 4px solid transparent;
+
+            &_button {
+                // height: 62px;
+                // display: flex;
+                // align-items: center;
+                // cursor: pointer;
+
+                img {
+                    // margin-right: 10px;
+                }
+
+                .fas {
+                    // margin-left: 13px;
+                    // font-size: 18px;
+                }
+
+                &_icon {
+                    // display: flex;
+                    // justify-content: center;
+                    // align-items: center;
+                    // background-color: @blue-color;
+                    // width: 24px;
+                    // height: 24px;
+                    // color: white;
+                    // font-size: 20px;
+                    // margin-right: 16px;
+                }
+            }
+
+            &_menu,
+            &_accounts {
+                // position: absolute;
+                // top: 70px;
+                // left: 0;
+                // padding: 10px 0;
+                // background-color: white;
+                // border-radius: 0 0 4px 4px;
+                // box-shadow: 0 2px 7px -3px black;
+            }
+        }
+
+        &_currency_menu {
+            // padding: 20px;
+
+            span {
+                // display: block;
+                // font-style: 12px;
+            }
+
+            select {
+                // color: @text-color;
+                // border-color: @blue-color;
+                // margin: 9px 0 25px 0;
+                // width: 100%;
+            }
+
+            &_buttons {
+                // display: flex;
+
+                button {
+                    // padding: 12px 20px;
+                    // color: @blue-color;
+                    // border-radius: 6px;
+                }
+
+                .save {
+                    // background-color: @blue-color;
+                    // color: white;
+                    // margin-left: 20px;
+                }
+            }
+        }
+
+        &_create_menu,
+        &_user_menu,
+        &_user_accounts {
+            // right: 0;
+            // left: auto;
+            // min-width: 240px;
+
+            .splitter {
+                // padding: 0;
+                // margin: 8px 0;
+                // height: 1px;
+                // background-color: @light-grey-color;
+            }
+
+            a,
+            button {
+                // box-sizing: border-box;
+                // display: flex;
+                // align-items: center;
+                // line-height: 40px;
+                // width: 100%;
+                // padding: 0 15px;
+
+                img {
+                    // margin-right: 10px;
+                }
+            }
+
+            .accounts_back {
+                // font-weight: 500;
+
+                .fas {
+                    // margin-right: 15px;
+                }
+            }
+        }
+
+        &_buttons {
+            // display: flex;
+            // align-items: center;
+            // margin-left: 40px;
+        }
+    }
+
+    .main {
+        &_content {
+            &_tab_window {
+                .double_input {
+                    &_left,
+                    &_right {
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .modal_window {
+        &_additional_filters {
+            .additional_filters_form {
+                .double_input {
+                    &_left,
+                    &_right {
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+
 }

@@ -5,12 +5,16 @@ const createButton = document.querySelector('.header_create_button');
 const userButton = document.querySelector('.header_user_button');
 const accountsButton = document.querySelector('.accounts_open');
 const closeAccountsButton = document.querySelector('.accounts_back');
+const burgerButton = document.querySelector('.header_burger');
+const burgerButtonIcon = burgerButton.querySelector('.fas');
 
 // Выпадающие меню шапки
 const currencyMenu = document.querySelector('.header_currency_menu');
 const createMenu = document.querySelector('.header_create_menu');
 const userMenu = document.querySelector('.header_user_menu');
+const userMenuOverlay = document.querySelector('#user_menu_overlay');
 const accountsMenu = document.querySelector('.header_user_accounts');
+const burgerBar = document.querySelector('#burger_bar');
 
 // Вкладки основного контента
 const mainContentTabs = document.querySelectorAll('.main_content_tab');
@@ -44,7 +48,7 @@ const investLinks = document.querySelectorAll('.invest_content_link');
 const tiles = document.querySelectorAll('.rent_methods_tile, .opportunities_content_tile');
 
 // Массив всех всплывающих окон
-const menuArray = [currencyMenu, createMenu, userMenu, accountsMenu, modal, additionalFilters, modalRentMethods, modalErrorReport];
+const menuArray = [burgerBar, currencyMenu, createMenu, userMenu, userMenuOverlay, accountsMenu, modal, additionalFilters, modalRentMethods, modalErrorReport];
 selectOptionsBlock.forEach(el => {
     menuArray.push(el);
 });
@@ -54,14 +58,29 @@ const closeAll = () => {
     menuArray.forEach(el => {
         el.classList.add('hidden');
     });
-
     selects.forEach(el => {
         el.classList.remove('custom_form_active');
     });
-
     document.querySelectorAll('.custom_form .fas').forEach(el => {
         el.style.transform = 'rotate(0)';
     });
+    burgerChangeIcon();
+};
+
+const burgerChangeIcon = () => {
+    if (burgerBar.classList.contains('hidden')) {
+        burgerButtonIcon.className = 'fas fa-bars';
+    } else {
+        burgerButtonIcon.className = 'fas fa-times';
+    }
+};
+
+const overlaySwitcher = () => {
+    if (!userMenu.classList.contains('hidden') || !accountsMenu.classList.contains('hidden')) {
+        userMenuOverlay.classList.remove('hidden');
+    } else {
+        userMenuOverlay.classList.add('hidden');
+    }
 };
 
 const menuSwitcher = (element) => {
@@ -234,6 +253,10 @@ document.addEventListener('click', event => {
         menuSwitcher(createMenu);
     } else if (t === userButton || tp === userButton) {
         menuSwitcher(userMenu);
+    } else if (t === burgerButton || tp === burgerButton) {
+        menuSwitcher(burgerBar);
+    } else if (t === burgerBar) {
+        burgerBar.classList.add('hidden');
     } else if (t === additionalFiltersButton || tp === additionalFiltersButton) {
         closeAll();
         modal.classList.remove('hidden');
@@ -247,6 +270,9 @@ document.addEventListener('click', event => {
     } else if (t.classList.contains('select_item')) {
         changeParkingPlaces(t);
     }
+
+    overlaySwitcher();
+    burgerChangeIcon();
 
     if (realEstateForm.textContent === 'Коммерческая недвижимость' || realEstateForm.textContent === 'Прочая') {
         roomsForm.classList.add('hidden');
