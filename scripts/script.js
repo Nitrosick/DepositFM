@@ -276,10 +276,10 @@ document.addEventListener('click', event => {
 
     if (realEstateForm.textContent === 'Коммерческая недвижимость' || realEstateForm.textContent === 'Прочая') {
         roomsForm.classList.add('hidden');
-        addressForm.style.gridColumnStart = 2;
+        // addressForm.style.gridColumnStart = 'auto';
     } else {
         roomsForm.classList.remove('hidden');
-        addressForm.style.gridColumnStart = 3;
+        // addressForm.style.gridColumnStart = 3;
     }
 });
 

@@ -43,6 +43,9 @@
             <div class="header_overlay_menu hidden" id="burger_bar">
                 <div class="header_burger_bar">
                     <ul>
+                        <li class="mobile_only"><a href="#"><i class="fas fa-location-arrow"></i>Калининград</a></li>
+                        <li class="mobile_only"><a href="#"><img src="images/flag.svg" alt="icon" loading="lazy" width="20" height="15">RUB</a></li>
+                        <li class="mobile_only splitter"></li>
                         <li><a href="#"><img src="images/triple_color/rent_bl.svg" alt="icon" loading="lazy" width="22" height="22">Снять недвижимость</a></li>
                         <li><a href="#"><img src="images/triple_color/buy_bl.svg" alt="icon" loading="lazy" width="20" height="20">Купить недвижимость</a></li>
                         <li><a href="#"><img src="images/triple_color/tenants_bl.svg" alt="icon" loading="lazy" width="17" height="20">Найти арендаторов</a></li>
@@ -99,12 +102,12 @@
             <div class="header_buttons">
                 <button class="header_notification">
                     <img src="images/bell.svg" alt="bell" loading="lazy" width="15" height="18">
-                    <div class="header_notification_mark">2</div>
+                    <span class="header_notification_mark">2</span>
                 </button>
 
                 <button class="header_comments">
                     <img src="images/comments.svg" alt="comments" loading="lazy" width="28" height="20">
-                    <div class="header_comments_mark">2</div>
+                    <span class="header_comments_mark">2</span>
                 </button>
 
                 <button class="header_like">
@@ -131,13 +134,15 @@
                     <img src="images/user.svg" alt="user" loading="lazy" width="35" height="35">
                     <span>Константин С.</span>
                     <i class="fas fa-angle-down"></i>
-                    <div class="header_comments_mark">2</div>
+                    <span class="header_comments_mark">2</span>
                 </div>
 
                 <div class="header_user_menu hidden">
                     <ul>
                         <li><a href="#"><img src="images/profile/profile.svg" alt="icon" loading="lazy" width="18" height="18">Мой профиль</a></li>
-                        <li><button class="accounts_open"><img src="images/profile/accounts.svg" alt="icon" loading="lazy" width="17" height="17">Аккаунты (3)<div class="plug"></div> <i class="fas fa-angle-right"></i></button></li>
+                        <li><button class="accounts_open"><img src="images/profile/accounts.svg" alt="icon" loading="lazy" width="17" height="17">Аккаунты (3)<span class="plug"></span> <i class="fas fa-angle-right"></i></button></li>
+                        <li class="mobile_only"><a href="#"><img src="images/bell.svg" alt="icon" loading="lazy" width="15" height="18">Уведомления</a></li>
+                        <li class="mobile_only"><a href="#"><img src="images/comments.svg" alt="icon" loading="lazy" width="22" height="22">Сообщения</a></li>
                         <li class="splitter"></li>
                         <li><a href="#"><img src="images/profile/ads.svg" alt="icon" loading="lazy" width="18" height="18">Мои объявления</a></li>
                         <li><a href="#"><img src="images/profile/real_estate.svg" alt="icon" loading="lazy" width="19" height="19">Моя недвижимость</a></li>
@@ -335,41 +340,50 @@
             <h2>Арендуйте недвижимость по-новому на Dconto</h2>
 
             <div class="rent_methods_tiles">
-                <button href="#" class="rent_methods_tile">
+                <button class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_1.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Аренда и оплата<i class="fas fa-angle-right"></i></h3>
                     <p>Классическая форма аренды. Стороны заключают контракт аренды, согласно которому арендатор платит арендодателю за объект недвижимости, предоставленный во временное пользование.</p>
                 </button>
 
-                <button href="#" class="rent_methods_tile">
+                <button class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_2.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Аренда со скидкой<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды с уникальной системой мотивации сторон путем бонусов и штрафов. Бонусы начисляются арендатору за выполнение определенных пунктов контракта, а штрафы - за их несоблюдение.</p>
                 </button>
 
-                <button href="#" class="rent_methods_tile">
+                <button class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_3.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Аренда за помощь<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды, при которой в качестве частичной или полной оплаты предполагается помощь. Тип помощи и условия указываются сторонами в объявлениях, а затем фиксируются в виртуальном договоре аренды.</p>
                 </button>
 
-                <button href="#" class="rent_methods_tile">
+                <button class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_4.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Аренда с заработком<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды, при которой, помимо предоставленной во временное пользование недвижимости, арендодатель готов заплатить арендатору за помощь. Условия фиксируются в виртуальном договоре аренды.</p>
                 </button>
 
-                <button href="#" class="rent_methods_tile">
+                <button class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_5.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Аренда с обучением<i class="fas fa-angle-right"></i></h3>
                     <p>Форма аренды, при которой в качестве полной или частичной оплаты выступает обмен знаниями и навыками. В роли обучающего может выступать как арендатор, так и арендодатель.</p>
                 </button>
 
-                <button href="#" class="rent_methods_tile">
+                <button class="rent_methods_tile">
                     <img src="images/rent_icons/rent_icon_6.svg" alt="icon" loading="lazy" width="60" height="60">
                     <h3>Бесплатная аренда<i class="fas fa-angle-right"></i></h3>
                     <p>Форма бесплатной аренды, просто так, для общения! Предполагается обмен информацией, прогулки, спорт, совместное посещение достопримечательностей и то, что будет интересно обеим сторонам.</p>
                 </button>
+            </div>
+
+            <div class="tiles_selector">
+                <button class="tiles_selector_button active_selector"></button>
+                <button class="tiles_selector_button"></button>
+                <button class="tiles_selector_button"></button>
+                <button class="tiles_selector_button"></button>
+                <button class="tiles_selector_button"></button>
+                <button class="tiles_selector_button"></button>
             </div>
         </section>
 
@@ -378,41 +392,50 @@
                 <h2>Ваши уникальные возможности на Dconto</h2>
 
                 <div class="opportunities_content_tiles">
-                    <button href="#" class="opportunities_content_tile">
+                    <button class="opportunities_content_tile">
                         <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_1.svg" alt="icon" loading="lazy" width="70" height="61">
                         <h3>Информативные профили<i class="fas fa-angle-right"></i></h3>
                         <p>Персональный профиль - это мощный инструмент взаимодействия пользователей. Чем лучше заполнен ваш профиль, тем больше о вас узнают другие пользователи, тем охотнее они будут заключать с вами сделки!</p>
                     </button>
 
-                    <button href="#" class="opportunities_content_tile">
+                    <button class="opportunities_content_tile">
                         <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_2.svg" alt="icon" loading="lazy" width="70" height="51">
                         <h3>Виртуальные подписи<i class="fas fa-angle-right"></i></h3>
                         <p>Виртуальная подпись позволяет пользователю подписывать контракты дистанционно, используя компьютер, телефон или планшет. Виртуальная подпись Dconto обладает той же юридической силой, что и рукописная.</p>
                     </button>
 
-                    <button href="#" class="opportunities_content_tile">
+                    <button class="opportunities_content_tile">
                         <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_3.svg" alt="icon" loading="lazy" width="60" height="60">
                         <h3>Виртуальный контракт<i class="fas fa-angle-right"></i></h3>
                         <p>Виртуальный контракт содержит уникальную систему мотивации сторон, которая повышает прозрачность и надежность сделки. Несколько пользователей могут участвовать в одном виртуальном контракте.</p>
                     </button>
 
-                    <button href="#" class="opportunities_content_tile">
+                    <button class="opportunities_content_tile">
                         <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_4.svg" alt="icon" loading="lazy" width="75" height="63">
                         <h3>Виртуальный акт передачи<i class="fas fa-angle-right"></i></h3>
                         <p>Виртуальный акт передачи - это удобный инструмент, позволяющий быстро и легко зафиксировать все особенности арендуемой или сдаваемой в аренду недвижимости без необходимости личной встречи.</p>
                     </button>
 
-                    <button href="#" class="opportunities_content_tile">
+                    <button class="opportunities_content_tile">
                         <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_5.svg" alt="icon" loading="lazy" width="60" height="60">
                         <h3>Домовая книга<i class="fas fa-angle-right"></i></h3>
                         <p>Домовая книга - это инструмент для хранения всей информации о вашей недвижимости. Подробно заполненная домовая книга в разы увеличит интерес и доверие к вашему объекту, что выгодно отразится на его стоимости.</p>
                     </button>
 
-                    <button href="#" class="opportunities_content_tile">
+                    <button class="opportunities_content_tile">
                         <img class="opportunities_icon" src="images/opportunities_icons/opportunities_icon_6.svg" alt="icon" loading="lazy" width="60" height="60">
                         <h3>Аренда с продажей<i class="fas fa-angle-right"></i></h3>
                         <p>Еще не решили продавать свою недвижимость, которую сдаете в аренду, но готовы выслушать предложения о покупке? Отметьте в своем объявлении , что готовы рассмотреть варианты продажи, и потенциальные покупатели сами свяжутся с вами!</p>
                     </button>
+                </div>
+
+                <div class="tiles_selector">
+                    <button class="tiles_selector_button active_selector"></button>
+                    <button class="tiles_selector_button"></button>
+                    <button class="tiles_selector_button"></button>
+                    <button class="tiles_selector_button"></button>
+                    <button class="tiles_selector_button"></button>
+                    <button class="tiles_selector_button"></button>
                 </div>
             </div>
         </section>
@@ -424,7 +447,7 @@
                 <p>Dconto - это бесплатный сервис для всех его пользователей! Это также сложный в технической реализации и продвижении международный проект. Мы не откажемся от помощи  инвесторов, специалистов и волонтеров, разделяющих наше видение, чтобы у всех участников рынка недвижимости было больше возможностей, а их взаимодействие - безопасным, взаимовыгодным и максимально удобным.</p>
 
                 <div class="invest_content_links">
-                    <button href="#" class="invest_content_link">
+                    <button class="invest_content_link">
                         <div class="invest_link_icon_block">
                             <img src="images/invest_icons/invest_icon_1.svg" alt="icon" loading="lazy" width="31" height="32">
                         </div>
@@ -433,7 +456,7 @@
                         <i class="fas fa-angle-right"></i>
                     </button>
 
-                    <button href="#" class="invest_content_link">
+                    <button class="invest_content_link">
                         <div class="invest_link_icon_block">
                             <img src="images/invest_icons/invest_icon_2.svg" alt="icon" loading="lazy" width="30" height="30">
                         </div>
@@ -442,7 +465,7 @@
                         <i class="fas fa-angle-right"></i>
                     </button>
 
-                    <button href="#" class="invest_content_link">
+                    <button class="invest_content_link">
                         <div class="invest_link_icon_block">
                             <img src="images/invest_icons/invest_icon_3.svg" alt="icon" loading="lazy" width="34" height="32">
                         </div>
@@ -451,7 +474,7 @@
                         <i class="fas fa-angle-right"></i>
                     </button>
 
-                    <button href="#" class="invest_content_link">
+                    <button class="invest_content_link">
                         <div class="invest_link_icon_block">
                             <img src="images/invest_icons/invest_icon_4.svg" alt="icon" loading="lazy" width="33" height="32">
                         </div>
@@ -562,6 +585,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="plug"></div>
                 <div class="additional_filters_control">
                     <button class="reset">Сбросить</button>
                     <button type="submit" class="accept">Применить</button>
